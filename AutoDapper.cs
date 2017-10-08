@@ -9,6 +9,10 @@ using System.Reflection;
 
 namespace DapperTest.DAL
 {
+    /// <summary>
+    /// Falta idenficar melhor as pk's e adicionar insert/update e delete de objetos relacionados
+    /// Lack of better identification of pk's and add insert/update and delete of related objects
+    /// </summary>
     public class Context : IDisposable
     {
         IDbConnection db;
