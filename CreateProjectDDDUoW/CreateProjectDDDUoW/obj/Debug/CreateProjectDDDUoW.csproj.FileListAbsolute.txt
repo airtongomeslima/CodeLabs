@@ -5,3 +5,9 @@ C:\Users\airto\source\repos\CreateProjectDDDUoW\CreateProjectDDDUoW\bin\Debug\Cr
 C:\Users\airto\source\repos\CreateProjectDDDUoW\CreateProjectDDDUoW\bin\Debug\CreateProjectDDDUoW.pdb
 C:\Users\airto\source\repos\CreateProjectDDDUoW\CreateProjectDDDUoW\obj\Debug\CreateProjectDDDUoW.exe
 C:\Users\airto\source\repos\CreateProjectDDDUoW\CreateProjectDDDUoW\obj\Debug\CreateProjectDDDUoW.pdb
+C:\Users\airto\Documents\GitHub\CodeLabs\CreateProjectDDDUoW\CreateProjectDDDUoW\bin\Debug\CreateProjectDDDUoW.exe.config
+C:\Users\airto\Documents\GitHub\CodeLabs\CreateProjectDDDUoW\CreateProjectDDDUoW\bin\Debug\CreateProjectDDDUoW.exe
+C:\Users\airto\Documents\GitHub\CodeLabs\CreateProjectDDDUoW\CreateProjectDDDUoW\bin\Debug\CreateProjectDDDUoW.pdb
+C:\Users\airto\Documents\GitHub\CodeLabs\CreateProjectDDDUoW\CreateProjectDDDUoW\obj\Debug\CreateProjectDDDUoW.csprojResolveAssemblyReference.cache
+C:\Users\airto\Documents\GitHub\CodeLabs\CreateProjectDDDUoW\CreateProjectDDDUoW\obj\Debug\CreateProjectDDDUoW.exe
+C:\Users\airto\Documents\GitHub\CodeLabs\CreateProjectDDDUoW\CreateProjectDDDUoW\obj\Debug\CreateProjectDDDUoW.pdb

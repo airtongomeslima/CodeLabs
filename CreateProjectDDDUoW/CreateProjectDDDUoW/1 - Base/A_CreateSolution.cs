@@ -5,15 +5,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using CreateProjectDDDUoW._0___Core;
 
 namespace CreateProjectDDDUoW._1___Base
 {
     public class A_CreateSolution
     {
         private StringBuilder SLN = new StringBuilder();
-        public string FormatVersion = "12.0";
-        public string VSVersion = "14";
-        public string VSFullVersion = "14.0.22310.1";
+
+        //VS 2015 12.0
+        public string FormatVersion = "12.00";
+        //VS 2015 14
+        public string VSVersion = "15";
+        //VS 2015 14.0.22310.1
+        public string VSFullVersion = "15.0.26730.16";
+        //VS 2015 10.0.40219.1
         public string MinimumVisualStudioVersion = "10.0.40219.1";
 
         public A_CreateSolution(string LocalToCreate, string NomeSolution)
@@ -30,17 +36,12 @@ namespace CreateProjectDDDUoW._1___Base
             }
 
             string arquivo = $"{diretorio}/{NomeSolution}.sln";
-            if (!File.Exists(arquivo))
+            if (File.Exists(arquivo))
             {
-                //using (FileStream file = File.Create(arquivo))
-                //{
-                    File.WriteAllText(arquivo, SLN.ToString());
-                //}
+                File.Delete(arquivo);
             }
-            else
-            {
-                throw new Exception("Uma solution com este nome já existe no local selecionado.");
-            }
+
+            File.WriteAllText(arquivo, SLN.ToString());
         }
 
         private void AddHeader()
@@ -53,49 +54,50 @@ namespace CreateProjectDDDUoW._1___Base
 
         private void AddFolders()
         {
-            SLN.AppendLine("Project(\"{2150E333-8FDC-42A3-9474-1A3956D46DE8}\") = \"0-Modeling and Design\", \"0-Modeling and Design\", \"{2B50C8C2-375A-42EA-A27F-1F61E5558351}\"");
+            Guid guidPasta = Extension.GetEnumGuid(TiposdeProjetos.Solution_Folder);
+            SLN.AppendLine($"Project(\"{{{guidPasta}}}\") = \"0-Modeling and Design\", \"0-Modeling and Design\", \"{{2B50C8C2-375A-42EA-A27F-1F61E5558351}}\"");
             SLN.AppendLine("EndProject");
-            SLN.AppendLine("Project(\"{2150E333-8FDC-42A3-9474-1A3956D46DE8}\") = \"1-Layerss\", \"1-Layerss\", \"{C61707EA-6922-4543-8B04-FE4FEB467B99}\"");
+            SLN.AppendLine($"Project(\"{{{guidPasta}}}\") = \"1-Layerss\", \"1-Layerss\", \"{{C61707EA-6922-4543-8B04-FE4FEB467B99}}\"");
             SLN.AppendLine("EndProject");
-            SLN.AppendLine("Project(\"{2150E333-8FDC-42A3-9474-1A3956D46DE8}\") = \"1.1-Presentation\", \"1.1-Presentation\", \"{10F12706-7FED-45F8-AC60-D222C8E64494}\"");
+            SLN.AppendLine($"Project(\"{{{guidPasta}}}\") = \"1.1-Presentation\", \"1.1-Presentation\", \"{{10F12706-7FED-45F8-AC60-D222C8E64494}}\"");
             SLN.AppendLine("EndProject");
-            SLN.AppendLine("Project(\"{2150E333-8FDC-42A3-9474-1A3956D46DE8}\") = \"1.2-Distributed Services\", \"1.2-Distributed Services\", \"{5E73ADC5-35FC-476E-81D1-F09FB6A307E8}\"");
+            SLN.AppendLine($"Project(\"{{{guidPasta}}}\") = \"1.2-Distributed Services\", \"1.2-Distributed Services\", \"{{5E73ADC5-35FC-476E-81D1-F09FB6A307E8}}\"");
             SLN.AppendLine("EndProject");
-            SLN.AppendLine("Project(\"{2150E333-8FDC-42A3-9474-1A3956D46DE8}\") = \"1.3-Application\", \"1.3-Application\", \"{3DFE510B-2EBD-46A3-BA1A-62CD28E6427D}\"");
+            SLN.AppendLine($"Project(\"{{{guidPasta}}}\") = \"1.3-Application\", \"1.3-Application\", \"{{3DFE510B-2EBD-46A3-BA1A-62CD28E6427D}}\"");
             SLN.AppendLine("EndProject");
-            SLN.AppendLine("Project(\"{2150E333-8FDC-42A3-9474-1A3956D46DE8}\") = \"1.4-Domain\", \"1.4-Domain\", \"{5248E87F-EB51-4E16-9CE3-9F46F214054F}\"");
+            SLN.AppendLine($"Project(\"{{{guidPasta}}}\") = \"1.4-Domain\", \"1.4-Domain\", \"{{5248E87F-EB51-4E16-9CE3-9F46F214054F}}\"");
             SLN.AppendLine("EndProject");
-            SLN.AppendLine("Project(\"{2150E333-8FDC-42A3-9474-1A3956D46DE8}\") = \"1.5-Infrastructure\", \"1.5-Infrastructure\", \"{34934E1B-4B3C-4D85-A190-EA4E81B39746}\"");
+            SLN.AppendLine($"Project(\"{{{guidPasta}}}\") = \"1.5-Infrastructure\", \"1.5-Infrastructure\", \"{{34934E1B-4B3C-4D85-A190-EA4E81B39746}}\"");
             SLN.AppendLine("EndProject");
-            SLN.AppendLine("Project(\"{2150E333-8FDC-42A3-9474-1A3956D46DE8}\") = \"1.5.1 Data\", \"1.5.1 Data\", \"{0CD72A40-B22F-4609-A7C9-95C82EC6F6D2}\"");
+            SLN.AppendLine($"Project(\"{{{guidPasta}}}\") = \"1.5.1 Data\", \"1.5.1 Data\", \"{{0CD72A40-B22F-4609-A7C9-95C82EC6F6D2}}\"");
             SLN.AppendLine("EndProject");
-            SLN.AppendLine("Project(\"{2150E333-8FDC-42A3-9474-1A3956D46DE8}\") = \"1.5.2 Cross Cutting\", \"1.5.2 Cross Cutting\", \"{E00E48EE-3D7E-41C7-94A6-09581A6D0BA1}\"");
+            SLN.AppendLine($"Project(\"{{{guidPasta}}}\") = \"1.5.2 Cross Cutting\", \"1.5.2 Cross Cutting\", \"{{E00E48EE-3D7E-41C7-94A6-09581A6D0BA1}}\"");
             SLN.AppendLine("EndProject");
-            SLN.AppendLine("Project(\"{2150E333-8FDC-42A3-9474-1A3956D46DE8}\") = \"1.5.2.1-Core\", \"1.5.2.1-Core\", \"{1E0B0AB0-45B5-400C-A6CA-5178D89BC073}\"");
+            SLN.AppendLine($"Project(\"{{{guidPasta}}}\") = \"1.5.2.1-Core\", \"1.5.2.1-Core\", \"{{1E0B0AB0-45B5-400C-A6CA-5178D89BC073}}\"");
             SLN.AppendLine("EndProject");
-            SLN.AppendLine("Project(\"{2150E333-8FDC-42A3-9474-1A3956D46DE8}\") = \"1.5.2.2-BoundedContext\", \"1.5.2.2-BoundedContext\", \"{28416AB3-34AC-4DEE-BC8D-73877D9CB8AC}\"");
+            SLN.AppendLine($"Project(\"{{{guidPasta}}}\") = \"1.5.2.2-BoundedContext\", \"1.5.2.2-BoundedContext\", \"{{28416AB3-34AC-4DEE-BC8D-73877D9CB8AC}}\"");
             SLN.AppendLine("EndProject");
-            SLN.AppendLine("Project(\"{2150E333-8FDC-42A3-9474-1A3956D46DE8}\") = \"1.5.1.1-Core\", \"1.5.1.1-Core\", \"{5806D0C7-9543-40B4-85FE-86C174D16B42}\"");
+            SLN.AppendLine($"Project(\"{{{guidPasta}}}\") = \"1.5.1.1-Core\", \"1.5.1.1-Core\", \"{{5806D0C7-9543-40B4-85FE-86C174D16B42}}\"");
             SLN.AppendLine("EndProject");
-            SLN.AppendLine("Project(\"{2150E333-8FDC-42A3-9474-1A3956D46DE8}\") = \"1.5.1.2-BoundedContext\", \"1.5.1.2-BoundedContext\", \"{EB1C385A-F3F7-4789-97E0-1D4C2FBEA323}\"");
+            SLN.AppendLine($"Project(\"{{{guidPasta}}}\") = \"1.5.1.2-BoundedContext\", \"1.5.1.2-BoundedContext\", \"{{EB1C385A-F3F7-4789-97E0-1D4C2FBEA323}}\"");
             SLN.AppendLine("EndProject");
-            SLN.AppendLine("Project(\"{2150E333-8FDC-42A3-9474-1A3956D46DE8}\") = \"1.4.1-Core\", \"1.4.1-Core\", \"{0E75C193-3E2C-46B5-BD22-B16173689804}\"");
+            SLN.AppendLine($"Project(\"{{{guidPasta}}}\") = \"1.4.1-Core\", \"1.4.1-Core\", \"{{0E75C193-3E2C-46B5-BD22-B16173689804}}\"");
             SLN.AppendLine("EndProject");
-            SLN.AppendLine("Project(\"{2150E333-8FDC-42A3-9474-1A3956D46DE8}\") = \"1.4.2-BoundedContext\", \"1.4.2-BoundedContext\", \"{9D397C15-304C-44ED-BE7B-F88E8DD78BF9}\"");
+            SLN.AppendLine($"Project(\"{{{guidPasta}}}\") = \"1.4.2-BoundedContext\", \"1.4.2-BoundedContext\", \"{{9D397C15-304C-44ED-BE7B-F88E8DD78BF9}}\"");
             SLN.AppendLine("EndProject");
-            SLN.AppendLine("Project(\"{2150E333-8FDC-42A3-9474-1A3956D46DE8}\") = \"1.3.1-Core\", \"1.3.1-Core\", \"{F0334DDB-ADC4-4CC5-99C7-419A92DE9E32}\"");
+            SLN.AppendLine($"Project(\"{{{guidPasta}}}\") = \"1.3.1-Core\", \"1.3.1-Core\", \"{{F0334DDB-ADC4-4CC5-99C7-419A92DE9E32}}\"");
             SLN.AppendLine("EndProject");
-            SLN.AppendLine("Project(\"{2150E333-8FDC-42A3-9474-1A3956D46DE8}\") = \"1.3.2-BoundedContext\", \"1.3.2-BoundedContext\", \"{1A3CE60C-5FC6-4FCE-A327-89C2049F11B1}\"");
+            SLN.AppendLine($"Project(\"{{{guidPasta}}}\") = \"1.3.2-BoundedContext\", \"1.3.2-BoundedContext\", \"{{1A3CE60C-5FC6-4FCE-A327-89C2049F11B1}}\"");
             SLN.AppendLine("EndProject");
-            SLN.AppendLine("Project(\"{2150E333-8FDC-42A3-9474-1A3956D46DE8}\") = \"1.2.1-Core\", \"1.2.1-Core\", \"{21E5B6B4-FE9B-481E-8751-1A9BD1F3336B}\"");
+            SLN.AppendLine($"Project(\"{{{guidPasta}}}\") = \"1.2.1-Core\", \"1.2.1-Core\", \"{{21E5B6B4-FE9B-481E-8751-1A9BD1F3336B}}\"");
             SLN.AppendLine("EndProject");
-            SLN.AppendLine("Project(\"{2150E333-8FDC-42A3-9474-1A3956D46DE8}\") = \"1.2.2-BoundedContext\", \"1.2.2-BoundedContext\", \"{49EFF498-9487-489E-B502-4647D2ED3FBC}\"");
+            SLN.AppendLine($"Project(\"{{{guidPasta}}}\") = \"1.2.2-BoundedContext\", \"1.2.2-BoundedContext\", \"{{49EFF498-9487-489E-B502-4647D2ED3FBC}}\"");
             SLN.AppendLine("EndProject");
-            SLN.AppendLine("Project(\"{2150E333-8FDC-42A3-9474-1A3956D46DE8}\") = \"1.1.1-Web\", \"1.1.1-Web\", \"{376480D5-8D1F-4067-8CB1-C6A317A23BD9}\"");
+            SLN.AppendLine($"Project(\"{{{guidPasta}}}\") = \"1.1.1-Web\", \"1.1.1-Web\", \"{{376480D5-8D1F-4067-8CB1-C6A317A23BD9}}\"");
             SLN.AppendLine("EndProject");
-            SLN.AppendLine("Project(\"{2150E333-8FDC-42A3-9474-1A3956D46DE8}\") = \"1.1.2-Phone\", \"1.1.2-Phone\", \"{E70948C0-EFD6-4DEE-8C05-0660DE52CE73}\"");
+            SLN.AppendLine($"Project(\"{{{guidPasta}}}\") = \"1.1.2-Phone\", \"1.1.2-Phone\", \"{{E70948C0-EFD6-4DEE-8C05-0660DE52CE73}}\"");
             SLN.AppendLine("EndProject");
-            SLN.AppendLine("Project(\"{2150E333-8FDC-42A3-9474-1A3956D46DE8}\") = \"1.1.3-Windows\", \"1.1.3-Windows\", \"{7A560683-3254-42A4-8B94-730D3761DABE}\"");
+            SLN.AppendLine($"Project(\"{{{guidPasta}}}\") = \"1.1.3-Windows\", \"1.1.3-Windows\", \"{{7A560683-3254-42A4-8B94-730D3761DABE}}\"");
             SLN.AppendLine("EndProject");
         }
 
