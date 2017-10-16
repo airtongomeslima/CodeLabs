@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2002
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - API", "1 - API", "{68E6EC4C-2294-4220-8B15-E41DF6AEB85E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Servicos", "2 - Servicos", "{AD2B06E1-934D-4275-A8C2-E6B5400CA4C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Aplicacao", "3 - Aplicacao", "{AEC751B0-C53B-4BC7-8F4B-ED91EC765C70}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Dominio", "4 - Dominio", "{2BC2AEE1-BF36-4D53-9A58-1F5020885509}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Infra", "5 - Infra", "{86B16D6B-25CF-476D-B970-956436157255}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Testes", "0 - Testes", "{EC6E52AF-6485-43D5-9DF0-F42B26CF6A20}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - CrossCutting", "4.1 - CrossCutting", "{BDB3F61D-867C-4399-98AF-92F2A1034B76}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", "{3A8DE45F-B427-40C8-93F7-F8EF2F66F6AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD_TDD_Dapper_Exemplo.Infra.Dados", "DDD_TDD_Dapper_Exemplo.Infra.Dados\DDD_TDD_Dapper_Exemplo.Infra.Dados.csproj", "{05E20FAA-B182-4E84-94F9-6A3ECF492D88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD_TDD_Dapper_Exemplo.Dominio", "DDD_TDD_Dapper_Exemplo.Dominio\DDD_TDD_Dapper_Exemplo.Dominio.csproj", "{B771AC7E-C466-417A-8E5D-DD6D0B121572}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DDD_TDD_Dapper_Exemplo..Infra.Database", "DDD_TDD_Dapper_Exemplo..Infra.Database\DDD_TDD_Dapper_Exemplo..Infra.Database.sqlproj", "{FA4AA8DC-2247-4C3E-8343-EADFA8A8E727}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD_TDD_Dapper_Exemplo.API", "DDD_TDD_Dapper_Exemplo.API\DDD_TDD_Dapper_Exemplo.API.csproj", "{D25A4AF4-4253-4920-96C1-1B200123FE61}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05E20FAA-B182-4E84-94F9-6A3ECF492D88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05E20FAA-B182-4E84-94F9-6A3ECF492D88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05E20FAA-B182-4E84-94F9-6A3ECF492D88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05E20FAA-B182-4E84-94F9-6A3ECF492D88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B771AC7E-C466-417A-8E5D-DD6D0B121572}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B771AC7E-C466-417A-8E5D-DD6D0B121572}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B771AC7E-C466-417A-8E5D-DD6D0B121572}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B771AC7E-C466-417A-8E5D-DD6D0B121572}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA4AA8DC-2247-4C3E-8343-EADFA8A8E727}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA4AA8DC-2247-4C3E-8343-EADFA8A8E727}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA4AA8DC-2247-4C3E-8343-EADFA8A8E727}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FA4AA8DC-2247-4C3E-8343-EADFA8A8E727}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA4AA8DC-2247-4C3E-8343-EADFA8A8E727}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA4AA8DC-2247-4C3E-8343-EADFA8A8E727}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D25A4AF4-4253-4920-96C1-1B200123FE61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D25A4AF4-4253-4920-96C1-1B200123FE61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D25A4AF4-4253-4920-96C1-1B200123FE61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D25A4AF4-4253-4920-96C1-1B200123FE61}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BDB3F61D-867C-4399-98AF-92F2A1034B76} = {86B16D6B-25CF-476D-B970-956436157255}
+		{3A8DE45F-B427-40C8-93F7-F8EF2F66F6AF} = {86B16D6B-25CF-476D-B970-956436157255}
+		{05E20FAA-B182-4E84-94F9-6A3ECF492D88} = {3A8DE45F-B427-40C8-93F7-F8EF2F66F6AF}
+		{B771AC7E-C466-417A-8E5D-DD6D0B121572} = {2BC2AEE1-BF36-4D53-9A58-1F5020885509}
+		{FA4AA8DC-2247-4C3E-8343-EADFA8A8E727} = {3A8DE45F-B427-40C8-93F7-F8EF2F66F6AF}
+		{D25A4AF4-4253-4920-96C1-1B200123FE61} = {68E6EC4C-2294-4220-8B15-E41DF6AEB85E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E8169F60-BAEA-44B0-B9F2-223AB8546659}
+	EndGlobalSection
+EndGlobal

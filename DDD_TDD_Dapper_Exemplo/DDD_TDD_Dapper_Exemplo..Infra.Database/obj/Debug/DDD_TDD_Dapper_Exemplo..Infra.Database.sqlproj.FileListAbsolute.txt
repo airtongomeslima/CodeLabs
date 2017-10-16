@@ -1,0 +1,5 @@
+C:\Users\airto\Documents\Visual Studio 2017\Projects\DDD_TDD_Dapper_Exemplo\DDD_TDD_Dapper_Exemplo..Infra.Database\bin\Debug\DDD_TDD_Dapper_Exemplo..Infra.Database.dacpac
+C:\Users\airto\Documents\Visual Studio 2017\Projects\DDD_TDD_Dapper_Exemplo\DDD_TDD_Dapper_Exemplo..Infra.Database\bin\Debug\DDD_TDD_Dapper_Exemplo..Infra.Database.dll
+C:\Users\airto\Documents\Visual Studio 2017\Projects\DDD_TDD_Dapper_Exemplo\DDD_TDD_Dapper_Exemplo..Infra.Database\bin\Debug\DDD_TDD_Dapper_Exemplo..Infra.Database.pdb
+C:\Users\airto\Documents\Visual Studio 2017\Projects\DDD_TDD_Dapper_Exemplo\DDD_TDD_Dapper_Exemplo..Infra.Database\obj\Debug\DDD_TDD_Dapper_Exemplo..Infra.Database.dll
+C:\Users\airto\Documents\Visual Studio 2017\Projects\DDD_TDD_Dapper_Exemplo\DDD_TDD_Dapper_Exemplo..Infra.Database\obj\Debug\DDD_TDD_Dapper_Exemplo..Infra.Database.pdb
