@@ -673,11 +673,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\airto\\Documents\\Visual Studio 2017\\Projects\\DDD_TDD_Dapper_Exemplo\\DDD_TDD_Dapper_Exemplo.Dominio\\DDD_TDD_Dapper_Exemplo.Dominio.csproj",
+      "projectUniqueName": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\DDD_TDD_Dapper_Exemplo.Dominio\\DDD_TDD_Dapper_Exemplo.Dominio.csproj",
       "projectName": "DDD_TDD_Dapper_Exemplo.Dominio",
-      "projectPath": "C:\\Users\\airto\\Documents\\Visual Studio 2017\\Projects\\DDD_TDD_Dapper_Exemplo\\DDD_TDD_Dapper_Exemplo.Dominio\\DDD_TDD_Dapper_Exemplo.Dominio.csproj",
+      "projectPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\DDD_TDD_Dapper_Exemplo.Dominio\\DDD_TDD_Dapper_Exemplo.Dominio.csproj",
       "packagesPath": "C:\\Users\\airto\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\airto\\Documents\\Visual Studio 2017\\Projects\\DDD_TDD_Dapper_Exemplo\\DDD_TDD_Dapper_Exemplo.Dominio\\obj\\",
+      "outputPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\DDD_TDD_Dapper_Exemplo.Dominio\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

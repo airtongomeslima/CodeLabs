@@ -1,9 +1,9 @@
 ﻿using DDD_TDD_Dapper_Exemplo.Dominio.Entidades;
 using System.Collections.Generic;
 
-namespace DDD_TDD_Dapper_Exemplo.Dominio.Interfaces
+namespace DDD_TDD_Dapper_Exemplo.Dominio.Interfaces.Repositorios
 {
-    public interface IProdutoRepositorio : IRepositorioBase<Produto>
+    public interface IProdutoRepositorio : IClienteRepositorio<Produto>
     {
         IEnumerable<Produto> BuscaPorNome(string nome);
     }

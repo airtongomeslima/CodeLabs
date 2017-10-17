@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace DDD_TDD_Dapper_Exemplo.Dominio.Interfaces
+namespace DDD_TDD_Dapper_Exemplo.Dominio.Interfaces.Repositorios
 {
-    public interface IRepositorioBase<TEntity> where TEntity : class
+    public interface IClienteRepositorio<TEntity> where TEntity : class
     {
         void Adiciona(TEntity obj);
         TEntity GetPorId(int id);

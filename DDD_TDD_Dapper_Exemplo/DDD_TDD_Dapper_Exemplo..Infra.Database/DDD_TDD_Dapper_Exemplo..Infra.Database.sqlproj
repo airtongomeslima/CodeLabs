@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="DDD_TDD_Dapper_Exemplo..Infra.Database.publish.xml" />
+    <None Include="DDD_TDD_Dapper_Exemplo_1..Infra.Database.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo.Cliente.sql" />

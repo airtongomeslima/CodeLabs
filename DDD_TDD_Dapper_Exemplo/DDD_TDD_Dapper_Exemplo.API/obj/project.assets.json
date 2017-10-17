@@ -2,6 +2,78 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.0": {
+      "AutoMapper/6.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.3.0",
+          "System.Collections": "4.3.0",
+          "System.Collections.Concurrent": "4.3.0",
+          "System.Collections.Specialized": "4.3.0",
+          "System.ComponentModel.TypeConverter": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Dynamic.Runtime": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Linq.Expressions": "4.3.0",
+          "System.Linq.Queryable": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Text.RegularExpressions": "4.3.0",
+          "System.Threading": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/AutoMapper.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/AutoMapper.dll": {}
+        }
+      },
+      "AutoMapper.Extensions.Microsoft.DependencyInjection/3.0.1": {
+        "type": "package",
+        "dependencies": {
+          "AutoMapper": "6.1.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.0.0",
+          "Microsoft.Extensions.DependencyModel": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        }
+      },
+      "Dapper/1.50.2": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11",
+          "System.Collections.Concurrent": "4.0.12",
+          "System.Collections.NonGeneric": "4.0.1",
+          "System.Data.SqlClient": "4.1.0",
+          "System.Dynamic.Runtime": "4.0.11",
+          "System.Linq": "4.1.0",
+          "System.Reflection": "4.1.0",
+          "System.Reflection.Emit": "4.0.1",
+          "System.Reflection.Emit.Lightweight": "4.0.1",
+          "System.Reflection.Extensions": "4.0.1",
+          "System.Reflection.TypeExtensions": "4.1.0",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Runtime.InteropServices": "4.1.0",
+          "System.Text.RegularExpressions": "4.1.0",
+          "System.Threading": "4.0.11",
+          "System.Xml.XDocument": "4.0.11",
+          "System.Xml.XmlDocument": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/Dapper.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Dapper.dll": {}
+        }
+      },
       "Libuv/1.10.0": {
         "type": "package",
         "dependencies": {
@@ -3612,17 +3684,17 @@
           "lib/netstandard1.6/System.Linq.Expressions.dll": {}
         }
       },
-      "System.Linq.Queryable/4.0.1": {
+      "System.Linq.Queryable/4.3.0": {
         "type": "package",
         "dependencies": {
-          "System.Collections": "4.0.11",
-          "System.Diagnostics.Debug": "4.0.11",
-          "System.Linq": "4.1.0",
-          "System.Linq.Expressions": "4.1.0",
-          "System.Reflection": "4.1.0",
-          "System.Reflection.Extensions": "4.0.1",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime": "4.1.0"
+          "System.Collections": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Linq.Expressions": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0"
         },
         "compile": {
           "ref/netstandard1.0/System.Linq.Queryable.dll": {}
@@ -4746,10 +4818,78 @@
         "runtime": {
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
+      },
+      "DDD_TDD_Dapper_Exemplo.Dominio/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "compile": {
+          "bin/placeholder/DDD_TDD_Dapper_Exemplo.Dominio.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DDD_TDD_Dapper_Exemplo.Dominio.dll": {}
+        }
+      },
+      "DDD_TDD_Dapper_Exemplo.Infra.Dados/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "3.0.1",
+          "DDD_TDD_Dapper_Exemplo.Dominio": "1.0.0",
+          "Dapper": "1.50.2",
+          "Microsoft.Extensions.Configuration": "2.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DDD_TDD_Dapper_Exemplo.Infra.Dados.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DDD_TDD_Dapper_Exemplo.Infra.Dados.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "AutoMapper/6.1.1": {
+      "sha512": "A+6PAblvzmkXPS20nFBQJvlNSW5oEdyfN5+cxT/Du35fTNyuP5pNDXT64KT/jBgxt7CPduOM0Y7oLnNe0E5IXg==",
+      "type": "package",
+      "path": "automapper/6.1.1",
+      "files": [
+        "automapper.6.1.1.nupkg.sha512",
+        "automapper.nuspec",
+        "lib/net45/AutoMapper.dll",
+        "lib/net45/AutoMapper.xml",
+        "lib/netstandard1.1/AutoMapper.dll",
+        "lib/netstandard1.1/AutoMapper.xml",
+        "lib/netstandard1.3/AutoMapper.dll",
+        "lib/netstandard1.3/AutoMapper.xml"
+      ]
+    },
+    "AutoMapper.Extensions.Microsoft.DependencyInjection/3.0.1": {
+      "sha512": "i3IAYqWdE2UbqsmiiXE2L3khtKwkr+J8mT0zvUaiFUg72zC6BgLBo3dFvU5krq7QKBSsKVQ0NTCl/NmDoC0Hng==",
+      "type": "package",
+      "path": "automapper.extensions.microsoft.dependencyinjection/3.0.1",
+      "files": [
+        "automapper.extensions.microsoft.dependencyinjection.3.0.1.nupkg.sha512",
+        "automapper.extensions.microsoft.dependencyinjection.nuspec",
+        "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
+      ]
+    },
+    "Dapper/1.50.2": {
+      "sha512": "6VcCiiOxVhgMwgMCuQuaff8I5IyDamrzeOjuUH1iMExh8R5TJqwkVCpwdVJGQdwSCqWsQA/PerrrK7T6mONthQ==",
+      "type": "package",
+      "path": "dapper/1.50.2",
+      "files": [
+        "dapper.1.50.2.nupkg.sha512",
+        "dapper.nuspec",
+        "lib/net40/Dapper.dll",
+        "lib/net40/Dapper.xml",
+        "lib/net45/Dapper.dll",
+        "lib/net45/Dapper.xml",
+        "lib/net451/Dapper.dll",
+        "lib/net451/Dapper.xml",
+        "lib/netstandard1.3/Dapper.dll",
+        "lib/netstandard1.3/Dapper.xml"
+      ]
+    },
     "Libuv/1.10.0": {
       "sha512": "GsCf4q+eyaI49rCPlgYxdxa1SQCysXFFdSJWdstrwxytg4+VPYLYrXD4AT2rjHVJ+UF7SSWX9CapWEYaU4ejVQ==",
       "type": "package",
@@ -6202,7 +6342,7 @@
       ]
     },
     "Microsoft.Extensions.Configuration/2.0.0": {
-      "sha512": "SsI4RqI8EH00+cYO96tbftlh87sNUv1eeyuBU1XZdQkG0RrHAOjWgl7P0FoLeTSMXJpOnfweeOWj2d1/5H3FxA==",
+      "sha512": "phSl4L+HD/lCmEnwe8yohBd36fzFk7dVYQBHf5/gkMs0f0aHkMhI2gxp4+GEbr70+XA8RukKjYO3NxKrF76LQQ==",
       "type": "package",
       "path": "microsoft.extensions.configuration/2.0.0",
       "files": [
@@ -9593,13 +9733,11 @@
         "runtimes/aot/lib/netcore50/System.Linq.Expressions.dll"
       ]
     },
-    "System.Linq.Queryable/4.0.1": {
-      "sha512": "Yn/WfYe9RoRfmSLvUt2JerP0BTGGykCZkQPgojaxgzF2N0oPo+/AhB8TXOpdCcNlrG3VRtsamtK2uzsp3cqRVw==",
+    "System.Linq.Queryable/4.3.0": {
+      "sha512": "In1Bmmvl/j52yPu3xgakQSI0YIckPUr870w4K5+Lak3JCCa8hl+my65lABOuKfYs4ugmZy25ScFerC4nz8+b6g==",
       "type": "package",
-      "path": "system.linq.queryable/4.0.1",
+      "path": "system.linq.queryable/4.3.0",
       "files": [
-        "System.Linq.Queryable.4.0.1.nupkg.sha512",
-        "System.Linq.Queryable.nuspec",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/monoandroid10/_._",
@@ -9647,7 +9785,9 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._"
+        "ref/xamarinwatchos10/_._",
+        "system.linq.queryable.4.3.0.nupkg.sha512",
+        "system.linq.queryable.nuspec"
       ]
     },
     "System.Net.Http/4.3.0": {
@@ -12524,10 +12664,24 @@
         "windowsazure.storage.8.1.4.nupkg.sha512",
         "windowsazure.storage.nuspec"
       ]
+    },
+    "DDD_TDD_Dapper_Exemplo.Dominio/1.0.0": {
+      "type": "project",
+      "path": "../DDD_TDD_Dapper_Exemplo.Dominio/DDD_TDD_Dapper_Exemplo.Dominio.csproj",
+      "msbuildProject": "../DDD_TDD_Dapper_Exemplo.Dominio/DDD_TDD_Dapper_Exemplo.Dominio.csproj"
+    },
+    "DDD_TDD_Dapper_Exemplo.Infra.Dados/1.0.0": {
+      "type": "project",
+      "path": "../DDD_TDD_Dapper_Exemplo.Infra.Dados/DDD_TDD_Dapper_Exemplo.Infra.Dados.csproj",
+      "msbuildProject": "../DDD_TDD_Dapper_Exemplo.Infra.Dados/DDD_TDD_Dapper_Exemplo.Infra.Dados.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "AutoMapper >= 6.1.1",
+      "AutoMapper.Extensions.Microsoft.DependencyInjection >= 3.0.1",
+      "DDD_TDD_Dapper_Exemplo.Dominio >= 1.0.0",
+      "DDD_TDD_Dapper_Exemplo.Infra.Dados >= 1.0.0",
       "Microsoft.AspNetCore.All >= 2.0.0",
       "Microsoft.NETCore.App >= 2.0.0"
     ]
@@ -12542,11 +12696,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\airto\\Documents\\Visual Studio 2017\\Projects\\DDD_TDD_Dapper_Exemplo\\DDD_TDD_Dapper_Exemplo.API\\DDD_TDD_Dapper_Exemplo.API.csproj",
+      "projectUniqueName": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\DDD_TDD_Dapper_Exemplo.API\\DDD_TDD_Dapper_Exemplo.API.csproj",
       "projectName": "DDD_TDD_Dapper_Exemplo.API",
-      "projectPath": "C:\\Users\\airto\\Documents\\Visual Studio 2017\\Projects\\DDD_TDD_Dapper_Exemplo\\DDD_TDD_Dapper_Exemplo.API\\DDD_TDD_Dapper_Exemplo.API.csproj",
+      "projectPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\DDD_TDD_Dapper_Exemplo.API\\DDD_TDD_Dapper_Exemplo.API.csproj",
       "packagesPath": "C:\\Users\\airto\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\airto\\Documents\\Visual Studio 2017\\Projects\\DDD_TDD_Dapper_Exemplo\\DDD_TDD_Dapper_Exemplo.API\\obj\\",
+      "outputPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\DDD_TDD_Dapper_Exemplo.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12564,7 +12718,14 @@
       },
       "frameworks": {
         "netcoreapp2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\DDD_TDD_Dapper_Exemplo.Infra.Dados\\DDD_TDD_Dapper_Exemplo.Infra.Dados.csproj": {
+              "projectPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\DDD_TDD_Dapper_Exemplo.Infra.Dados\\DDD_TDD_Dapper_Exemplo.Infra.Dados.csproj"
+            },
+            "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\DDD_TDD_Dapper_Exemplo.Dominio\\DDD_TDD_Dapper_Exemplo.Dominio.csproj": {
+              "projectPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\DDD_TDD_Dapper_Exemplo.Dominio\\DDD_TDD_Dapper_Exemplo.Dominio.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -12576,10 +12737,18 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+            "target": "Package",
+            "version": "3.0.1"
+          },
           "Microsoft.NETCore.App": {
             "target": "Package",
             "version": "2.0.0",
             "autoReferenced": true
+          },
+          "AutoMapper": {
+            "target": "Package",
+            "version": "6.1.1"
           },
           "Microsoft.AspNetCore.All": {
             "target": "Package",

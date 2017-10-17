@@ -16,14 +16,16 @@ namespace DDD_TDD_Dapper_Exemplo.Infra.Dados.Contexto
     {
         IDbConnection db;
 
+        //TODO: Verificar por que diabos na primeira execução ele dá pau.
         public Contexto(IConfiguration config)
         {
-            db = new SqlConnection(config.GetConnectionString("DefaultConnection").ToString());
+            db = new SqlConnection(config.GetConnectionString("DefaultConnection"));
         }
 
         public List<T> ReadAll<T>()
         {
-            return db.Query<T>($"Select * From {typeof(T).Name}").ToList();
+            string tipo = typeof(T).Name;
+            return db.Query<T>($"Select * From {tipo}").ToList();
         }
 
         public T Find<T>(int id)

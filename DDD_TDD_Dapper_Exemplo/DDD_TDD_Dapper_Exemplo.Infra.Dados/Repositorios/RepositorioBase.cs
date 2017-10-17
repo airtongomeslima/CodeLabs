@@ -1,11 +1,11 @@
-﻿using DDD_TDD_Dapper_Exemplo.Dominio.Interfaces;
+﻿using DDD_TDD_Dapper_Exemplo.Dominio.Interfaces.Repositorios;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 
 namespace DDD_TDD_Dapper_Exemplo.Infra.Dados.Repositorios
 {
-    public class RepositorioBase<TEntity> : IDisposable, IRepositorioBase<TEntity> where TEntity : class
+    public class RepositorioBase<TEntity> : IDisposable, IClienteRepositorio<TEntity> where TEntity : class
     {
         protected Contexto.Contexto contexto;
 

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using DDD_TDD_Dapper_Exemplo.Dominio.Entidades;
-using DDD_TDD_Dapper_Exemplo.Dominio.Interfaces;
+using DDD_TDD_Dapper_Exemplo.Dominio.Interfaces.Repositorios;
 using Microsoft.Extensions.Configuration;
 
 namespace DDD_TDD_Dapper_Exemplo.Infra.Dados.Repositorios

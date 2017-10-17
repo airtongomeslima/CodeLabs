@@ -3,3 +3,12 @@ C:\Users\airto\Documents\Visual Studio 2017\Projects\DDD_TDD_Dapper_Exemplo\DDD_
 C:\Users\airto\Documents\Visual Studio 2017\Projects\DDD_TDD_Dapper_Exemplo\DDD_TDD_Dapper_Exemplo..Infra.Database\bin\Debug\DDD_TDD_Dapper_Exemplo..Infra.Database.pdb
 C:\Users\airto\Documents\Visual Studio 2017\Projects\DDD_TDD_Dapper_Exemplo\DDD_TDD_Dapper_Exemplo..Infra.Database\obj\Debug\DDD_TDD_Dapper_Exemplo..Infra.Database.dll
 C:\Users\airto\Documents\Visual Studio 2017\Projects\DDD_TDD_Dapper_Exemplo\DDD_TDD_Dapper_Exemplo..Infra.Database\obj\Debug\DDD_TDD_Dapper_Exemplo..Infra.Database.pdb
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\DDD_TDD_Dapper_Exemplo..Infra.Database\bin\Debug\DDD_TDD_Dapper_Exemplo..Infra.Database.dacpac
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\DDD_TDD_Dapper_Exemplo..Infra.Database\bin\Debug\DDD_TDD_Dapper_Exemplo..Infra.Database.dll
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\DDD_TDD_Dapper_Exemplo..Infra.Database\bin\Debug\DDD_TDD_Dapper_Exemplo..Infra.Database.pdb
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\DDD_TDD_Dapper_Exemplo..Infra.Database\obj\Debug\Model.xml
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\DDD_TDD_Dapper_Exemplo..Infra.Database\obj\Debug\refactor.xml
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\DDD_TDD_Dapper_Exemplo..Infra.Database\obj\Debug\postdeploy.sql
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\DDD_TDD_Dapper_Exemplo..Infra.Database\obj\Debug\predeploy.sql
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\DDD_TDD_Dapper_Exemplo..Infra.Database\obj\Debug\DDD_TDD_Dapper_Exemplo..Infra.Database.dll
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\DDD_TDD_Dapper_Exemplo..Infra.Database\obj\Debug\DDD_TDD_Dapper_Exemplo..Infra.Database.pdb

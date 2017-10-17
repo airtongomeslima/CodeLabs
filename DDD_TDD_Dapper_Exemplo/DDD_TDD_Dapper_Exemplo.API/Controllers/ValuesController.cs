@@ -3,17 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using DDD_TDD_Dapper_Exemplo.Infra.Dados.Repositorios;
+using Microsoft.Extensions.Configuration;
+using AutoMapper;
+using DDD_TDD_Dapper_Exemplo.API.Models;
+using DDD_TDD_Dapper_Exemplo.Dominio.Entidades;
 
 namespace DDD_TDD_Dapper_Exemplo.API.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
+        private static IConfiguration _config;
+
+        private readonly ClienteRepositorio _clienteRepositorio = new ClienteRepositorio(_config);
+
+        public ValuesController(IConfiguration config)
+        {
+            _config = config;
+        }
+
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<ClienteModel> Get()
         {
-            return new string[] { "value1", "value2" };
+            var clienteview = Mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteModel>>(_clienteRepositorio.ObterTodos());
+            
+            return clienteview;
         }
 
         // GET api/values/5
