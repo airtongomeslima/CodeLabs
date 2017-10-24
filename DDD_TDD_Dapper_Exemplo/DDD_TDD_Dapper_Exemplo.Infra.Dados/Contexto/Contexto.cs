@@ -2,15 +2,17 @@
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 
 namespace DDD_TDD_Dapper_Exemplo.Infra.Dados.Contexto
 {
     /// <summary>
-    /// Falta idenficar melhor as pk's e adicionar insert/update e delete de objetos relacionados
-    /// Lack of better identification of pk's and add insert/update and delete of related objects
+    /// Falta adicionar insert/update e delete de objetos relacionados
+    /// Missing insert/update and delete of related objects
     /// </summary>
     public class Contexto : IDisposable
     {
@@ -30,7 +32,22 @@ namespace DDD_TDD_Dapper_Exemplo.Infra.Dados.Contexto
 
         public T Find<T>(int id)
         {
-            return db.Query<T>($"Select * From {typeof(T).Name} WHERE {typeof(T).Name}Id = @Id", new { id }).SingleOrDefault();
+            PropertyInfo[] properties = typeof(T).GetProperties();
+
+            string key = $"{typeof(T).Name}Id";
+
+            foreach (PropertyInfo property in properties)
+            {
+                var attribute = Attribute.GetCustomAttribute(property, typeof(KeyAttribute))
+                    as KeyAttribute;
+
+                if (attribute != null)
+                {
+                    key = property.Name;
+                }
+            }
+
+            return db.Query<T>($"Select * From {typeof(T).Name} WHERE {key} = @Id", new { id }).SingleOrDefault();
         }
 
         public IEnumerable<T> Where<T>(string param)

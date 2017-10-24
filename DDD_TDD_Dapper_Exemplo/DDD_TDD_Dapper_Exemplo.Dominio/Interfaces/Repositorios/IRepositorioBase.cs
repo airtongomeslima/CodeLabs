@@ -2,7 +2,7 @@
 
 namespace DDD_TDD_Dapper_Exemplo.Dominio.Interfaces.Repositorios
 {
-    public interface IClienteRepositorio<TEntity> where TEntity : class
+    public interface IRepositorioBase<TEntity> where TEntity : class
     {
         void Adiciona(TEntity obj);
         TEntity GetPorId(int id);

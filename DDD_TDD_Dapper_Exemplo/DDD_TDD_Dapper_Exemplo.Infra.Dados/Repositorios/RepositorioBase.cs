@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace DDD_TDD_Dapper_Exemplo.Infra.Dados.Repositorios
 {
-    public class RepositorioBase<TEntity> : IDisposable, IClienteRepositorio<TEntity> where TEntity : class
+    public class RepositorioBase<TEntity> : IDisposable, IRepositorioBase<TEntity> where TEntity : class
     {
         protected Contexto.Contexto contexto;
 

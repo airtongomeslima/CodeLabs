@@ -2,7 +2,7 @@
 
 namespace DDD_TDD_Dapper_Exemplo.Dominio.Interfaces.Repositorios
 {
-    public interface IClienteRepositorio:IClienteRepositorio<Cliente>
+    public interface IClienteRepositorio:IRepositorioBase<Cliente>
     {
     }
 }

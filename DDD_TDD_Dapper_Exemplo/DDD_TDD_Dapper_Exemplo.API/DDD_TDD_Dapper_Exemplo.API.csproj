@@ -12,6 +12,14 @@
     <PackageReference Include="AutoMapper" Version="6.1.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="2.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="Swashbuckle" Version="5.6.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="1.0.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.1.4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DDD_TDD_Dapper_Exemplo.Aplicacao\DDD_TDD_Dapper_Exemplo.Aplicacao.csproj" />
     <ProjectReference Include="..\DDD_TDD_Dapper_Exemplo.Dominio\DDD_TDD_Dapper_Exemplo.Dominio.csproj" />
     <ProjectReference Include="..\DDD_TDD_Dapper_Exemplo.Infra.Dados\DDD_TDD_Dapper_Exemplo.Infra.Dados.csproj" />
   </ItemGroup>

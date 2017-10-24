@@ -13,3 +13,5 @@ C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\DDD_TDD_Dapper_E
 C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\DDD_TDD_Dapper_Exemplo.API\obj\Debug\netcoreapp2.0\DDD_TDD_Dapper_Exemplo.API.AssemblyInfo.cs
 C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\DDD_TDD_Dapper_Exemplo.API\obj\Debug\netcoreapp2.0\DDD_TDD_Dapper_Exemplo.API.dll
 C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\DDD_TDD_Dapper_Exemplo.API\obj\Debug\netcoreapp2.0\DDD_TDD_Dapper_Exemplo.API.pdb
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\DDD_TDD_Dapper_Exemplo.API\bin\Debug\netcoreapp2.0\DDD_TDD_Dapper_Exemplo.Aplicacao.dll
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\DDD_TDD_Dapper_Exemplo.API\bin\Debug\netcoreapp2.0\DDD_TDD_Dapper_Exemplo.Aplicacao.pdb

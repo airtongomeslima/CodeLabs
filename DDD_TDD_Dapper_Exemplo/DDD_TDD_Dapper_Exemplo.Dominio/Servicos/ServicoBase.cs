@@ -7,9 +7,9 @@ namespace DDD_TDD_Dapper_Exemplo.Dominio.Servicos
 {
     public class ServicoBase<TEntity> : IDisposable, IServicoBase<TEntity> where TEntity : class
     {
-        private readonly IClienteRepositorio<TEntity> _repositorio;
+        private readonly IRepositorioBase<TEntity> _repositorio;
 
-        public ServicoBase(IClienteRepositorio<TEntity> repositorio)
+        public ServicoBase(IRepositorioBase<TEntity> repositorio)
         {
             _repositorio = repositorio;
         }
@@ -17,6 +17,11 @@ namespace DDD_TDD_Dapper_Exemplo.Dominio.Servicos
         public void Adicionar(TEntity obj)
         {
             _repositorio.Adiciona(obj);
+        }
+        
+        public TEntity GetById(int id)
+        {
+            return _repositorio.GetPorId(id);
         }
 
         public IEnumerable<TEntity> GetAll()

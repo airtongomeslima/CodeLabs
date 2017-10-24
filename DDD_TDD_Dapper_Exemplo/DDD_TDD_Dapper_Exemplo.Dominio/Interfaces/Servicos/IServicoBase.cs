@@ -6,6 +6,7 @@ namespace DDD_TDD_Dapper_Exemplo.Dominio.Interfaces.Servicos
     {
         void Adicionar(TEntity obj);
         IEnumerable<TEntity> GetAll();
+        TEntity GetById(int id);
         void Atualizar(TEntity obj);
         void Remover(int id);
         void Dispose();
