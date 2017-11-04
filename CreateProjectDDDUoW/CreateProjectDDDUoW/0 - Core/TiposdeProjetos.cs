@@ -105,6 +105,9 @@ namespace CreateProjectDDDUoW._0___Core
         [EnumGuid("786C830F-07A1-408B-BD7F-6EE04809D6DB")]
         Portable_Class_Library,
 
+        [EnumGuid("9A19103F-16F7-4668-BE54-9A1E7A4F7556")]
+        Core_Class_Library,
+
         [EnumGuid("66A26720-8FB5-11D2-AA7E-00C04F688DDE")]
         Project_Folders,
 
@@ -205,7 +208,10 @@ namespace CreateProjectDDDUoW._0___Core
         XNA_XBox,
 
         [EnumGuid("D399B71A-8929-442a-A9AC-8BEC78BB2433")]
-        XNA_Zune
+        XNA_Zune,
+
+        [EnumGuid("00D1A9C2-B5F0-4AF3-8072-F6C62B433612")]
+        SQL
 
     }
 }

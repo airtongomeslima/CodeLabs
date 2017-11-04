@@ -43,13 +43,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="0 - Core\ExtensionString.cs" />
+    <Compile Include="0 - Core\SQLTools.cs" />
+    <Compile Include="0 - Core\TiposdePastas.cs" />
     <Compile Include="0 - Core\TiposdeProjetos.cs" />
     <Compile Include="1 - Base\A_CreateSolution.cs" />
+    <Compile Include="1 - Base\C_CreateProjectAPI.cs" />
+    <Compile Include="1 - Base\B_CreateProjectTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Itens.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
