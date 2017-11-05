@@ -1,0 +1,14 @@
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Test\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Test\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Test\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Test\bin\Debug\netcoreapp2.0\ModeloDDD.Test.deps.json
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Test\bin\Debug\netcoreapp2.0\ModeloDDD.Test.runtimeconfig.json
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Test\bin\Debug\netcoreapp2.0\ModeloDDD.Test.runtimeconfig.dev.json
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Test\bin\Debug\netcoreapp2.0\ModeloDDD.Test.dll
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Test\bin\Debug\netcoreapp2.0\ModeloDDD.Test.pdb
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Test\obj\Debug\netcoreapp2.0\ModeloDDD.Test.csprojResolveAssemblyReference.cache
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Test\obj\Debug\netcoreapp2.0\ModeloDDD.Test.csproj.CoreCompileInputs.cache
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Test\obj\Debug\netcoreapp2.0\ModeloDDD.Test.AssemblyInfoInputs.cache
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Test\obj\Debug\netcoreapp2.0\ModeloDDD.Test.AssemblyInfo.cs
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Test\obj\Debug\netcoreapp2.0\ModeloDDD.Test.dll
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Test\obj\Debug\netcoreapp2.0\ModeloDDD.Test.pdb

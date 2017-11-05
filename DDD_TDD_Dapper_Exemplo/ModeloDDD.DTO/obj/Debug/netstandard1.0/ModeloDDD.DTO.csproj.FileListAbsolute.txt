@@ -1,0 +1,8 @@
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.DTO\bin\Debug\netstandard1.0\ModeloDDD.DTO.deps.json
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.DTO\bin\Debug\netstandard1.0\ModeloDDD.DTO.dll
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.DTO\bin\Debug\netstandard1.0\ModeloDDD.DTO.pdb
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.DTO\obj\Debug\netstandard1.0\ModeloDDD.DTO.csproj.CoreCompileInputs.cache
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.DTO\obj\Debug\netstandard1.0\ModeloDDD.DTO.AssemblyInfoInputs.cache
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.DTO\obj\Debug\netstandard1.0\ModeloDDD.DTO.AssemblyInfo.cs
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.DTO\obj\Debug\netstandard1.0\ModeloDDD.DTO.dll
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.DTO\obj\Debug\netstandard1.0\ModeloDDD.DTO.pdb

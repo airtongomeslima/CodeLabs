@@ -1,0 +1,11 @@
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Infra.Dados\obj\Debug\netcoreapp2.0\ModeloDDD.Infra.Dados.csprojResolveAssemblyReference.cache
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Infra.Dados\obj\Debug\netcoreapp2.0\ModeloDDD.Infra.Dados.csproj.CoreCompileInputs.cache
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Infra.Dados\obj\Debug\netcoreapp2.0\ModeloDDD.Infra.Dados.AssemblyInfoInputs.cache
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Infra.Dados\obj\Debug\netcoreapp2.0\ModeloDDD.Infra.Dados.AssemblyInfo.cs
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Infra.Dados\bin\Debug\netcoreapp2.0\ModeloDDD.Infra.Dados.deps.json
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Infra.Dados\bin\Debug\netcoreapp2.0\ModeloDDD.Infra.Dados.dll
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Infra.Dados\bin\Debug\netcoreapp2.0\ModeloDDD.Infra.Dados.pdb
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Infra.Dados\bin\Debug\netcoreapp2.0\ModeloDDD.Dominio.dll
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Infra.Dados\bin\Debug\netcoreapp2.0\ModeloDDD.Dominio.pdb
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Infra.Dados\obj\Debug\netcoreapp2.0\ModeloDDD.Infra.Dados.dll
+C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Infra.Dados\obj\Debug\netcoreapp2.0\ModeloDDD.Infra.Dados.pdb
