@@ -35,11 +35,56 @@ namespace CreateProjectDDDUoW._0___Core
         public static string GetClass(string connectionString, string tableName)
         {
             string result = "";
-            string getclass = $"declare @TableName sysname = '{tableName}' declare @Result varchar(max) = 'public class ' + @TableName + '{{\r\n' select @Result = @Result + '\r\n    public ' + ColumnType + NullableSign + ' ' + ColumnName + ' {{ get; set; }}\r\n' from (select  replace(col.name, ' ', '_') ColumnName, column_id ColumnId, case typ.name when 'bigint' then 'long' when 'binary' then 'byte[]' when 'bit' then 'bool' when 'char' then 'string' when 'date' then 'DateTime' when 'datetime' then 'DateTime' when 'datetime2' then 'DateTime' when 'datetimeoffset' then 'DateTimeOffset' when 'decimal' then 'decimal' when 'float' then 'float' when 'image' then 'byte[]' when 'int' then 'int' when 'money' then 'decimal' when 'nchar' then 'string' when 'ntext' then 'string' when 'numeric' then 'decimal' when 'nvarchar' then 'string' when 'real' then 'double' when 'smalldatetime' then 'DateTime' when 'smallint' then 'short' when 'smallmoney' then 'decimal' when 'text' then 'string' when 'time' then 'TimeSpan' when 'timestamp' then 'DateTime' when 'tinyint' then 'byte' when 'uniqueidentifier' then 'Guid' when 'varbinary' then 'byte[]' when 'varchar' then 'string' else 'UNKNOWN_' + typ.name end ColumnType, case  when col.is_nullable = 1 and typ.name in ('bigint', 'bit', 'date', 'datetime', 'datetime2', 'datetimeoffset', 'decimal', 'float', 'int', 'money', 'numeric', 'real', 'smalldatetime', 'smallint', 'smallmoney', 'time', 'tinyint', 'uniqueidentifier') then '?' else '' end NullableSign from sys.columns col join sys.types typ on col.system_type_id = typ.system_type_id AND col.user_type_id = typ.user_type_id where object_id = object_id(@TableName)) t order by ColumnId set @Result = @Result  + '}}' print @Result";
-            
+            string schema = tableName.Split('.')[0];
+            string tabela = tableName.Split('.')[1];
+
+            string getclass =
+                $"declare @TableName sysname = '{tableName}' " +
+                $"declare @Result varchar(max) = '"+
+                $"using System;\r\nusing System.ComponentModel.DataAnnotations;\r\nusing System.ComponentModel.DataAnnotations.Schema;\r\n\r\n" +
+                $"namespace ModeloTDD.Dominio.Entitades\r\n{{\r\n" +
+                $"\t[Table(\"{tabela}\", Schema = \"{schema}\")]\r\n" +
+                $"\tpublic class {tabela}\r\n\t{{\r\n\t\t[Key]' " +
+                $"select @Result = @Result + " +
+                $" ColumnType + NullableSign + ' ' + ColumnName + ' {{ get; set; }}' " +
+                $"from (select  replace(col.name, ' ', '_') ColumnName, column_id ColumnId, case typ.name" +
+                $" when 'bigint' then '\r\n\t\tpublic long'" +
+                $" when 'binary' then '\r\n\t\tpublic byte[]'" +
+                $" when 'bit' then '\r\n\t\tpublic bool'" +
+                $" when 'char' then '\r\n\t\tpublic string'" +
+                $" when 'date' then '\r\n\t\tpublic DateTime'" +
+                $" when 'datetime' then '\r\n\t\tpublic DateTime'" +
+                $" when 'datetime2' then '\r\n\t\tpublic DateTime'" +
+                $" when 'datetimeoffset' then '\r\n\t\tpublic DateTimeOffset'" +
+                $" when 'decimal' then '\r\n\t\tpublic decimal'" +
+                $" when 'float' then '\r\n\t\tpublic float'" +
+                $" when 'image' then '\r\n\t\tpublic byte[]'" +
+                $" when 'int' then '\r\n\t\tpublic int'" +
+                $" when 'money' then '\r\n\t\tpublic decimal'" +
+                $" when 'nchar' then '\r\n\t\tpublic string'" +
+                $" when 'ntext' then '\r\n\t\tpublic string'" +
+                $" when 'numeric' then '\r\n\t\tpublic decimal'" +
+                $" when 'nvarchar' then '\r\n\t\tpublic string'" +
+                $" when 'real' then '\r\n\t\tpublic double'" +
+                $" when 'smalldatetime' then '\r\n\t\tpublic DateTime'" +
+                $" when 'smallint' then '\r\n\t\tpublic short'" +
+                $" when 'smallmoney' then '\r\n\t\tpublic decimal'" +
+                $" when 'text' then '\r\n\t\tpublic string'" +
+                $" when 'time' then '\r\n\t\tpublic TimeSpan'" +
+                $" when 'timestamp' then '\r\n\t\tpublic DateTime'" +
+                $" when 'tinyint' then '\r\n\t\tpublic byte'" +
+                $" when 'uniqueidentifier' then '\r\n\t\tpublic Guid'" +
+                $" when 'varbinary' then '\r\n\t\tpublic byte[]'" +
+                $" when 'varchar' then '\r\n\t\tpublic string'" +
+                $" else 'UNKNOWN_' + typ.name end ColumnType, case " +
+                $" when col.is_nullable = 1 and typ.name in ('bigint', 'bit', 'date', 'datetime', 'datetime2', 'datetimeoffset', 'decimal', 'float', 'int', 'money', 'numeric', 'real', 'smalldatetime', 'smallint', 'smallmoney', 'time', 'tinyint', 'uniqueidentifier') then '?' else '' end NullableSign from sys.columns col join sys.types typ on col.system_type_id = typ.system_type_id AND col.user_type_id = typ.user_type_id where object_id = object_id(@TableName)) t order by ColumnId set @Result = @Result  + " +
+                $"'\r\n\t}}\r\n}}' print @Result";
+
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                connection.InfoMessage += (object sender, SqlInfoMessageEventArgs args) => {
+                connection.InfoMessage += (object sender, SqlInfoMessageEventArgs args) =>
+                {
                     result = args.Message;
                 };
 

@@ -49,6 +49,7 @@
     <Compile Include="1 - Base\A_CreateSolution.cs" />
     <Compile Include="1 - Base\C_CreateProjectAPI.cs" />
     <Compile Include="1 - Base\B_CreateProjectTest.cs" />
+    <Compile Include="1 - Base\D_CreateInfraDados.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
