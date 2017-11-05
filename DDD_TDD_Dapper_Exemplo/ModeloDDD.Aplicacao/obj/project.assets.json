@@ -689,11 +689,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Aplicacao\\ModeloDDD.Aplicacao.csproj",
+      "projectUniqueName": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Aplicacao\\ModeloDDD.Aplicacao.csproj",
       "projectName": "ModeloDDD.Aplicacao",
-      "projectPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Aplicacao\\ModeloDDD.Aplicacao.csproj",
+      "projectPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Aplicacao\\ModeloDDD.Aplicacao.csproj",
       "packagesPath": "C:\\Users\\airto\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Aplicacao\\obj\\",
+      "outputPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Aplicacao\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -713,8 +713,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Dominio\\ModeloDDD.Dominio.csproj": {
-              "projectPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Dominio\\ModeloDDD.Dominio.csproj"
+            "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Dominio\\ModeloDDD.Dominio.csproj": {
+              "projectPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Dominio\\ModeloDDD.Dominio.csproj"
             }
           }
         }

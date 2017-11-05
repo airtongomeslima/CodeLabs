@@ -9,3 +9,14 @@ C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Aplica
 C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Aplicacao\obj\Debug\netcoreapp2.0\ModeloDDD.Aplicacao.AssemblyInfo.cs
 C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Aplicacao\obj\Debug\netcoreapp2.0\ModeloDDD.Aplicacao.dll
 C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Aplicacao\obj\Debug\netcoreapp2.0\ModeloDDD.Aplicacao.pdb
+C:\Users\airto\Documents\GitHub\CodeLabs\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Aplicacao\bin\Debug\netcoreapp2.0\ModeloDDD.Aplicacao.deps.json
+C:\Users\airto\Documents\GitHub\CodeLabs\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Aplicacao\bin\Debug\netcoreapp2.0\ModeloDDD.Aplicacao.dll
+C:\Users\airto\Documents\GitHub\CodeLabs\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Aplicacao\bin\Debug\netcoreapp2.0\ModeloDDD.Aplicacao.pdb
+C:\Users\airto\Documents\GitHub\CodeLabs\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Aplicacao\bin\Debug\netcoreapp2.0\ModeloDDD.Dominio.dll
+C:\Users\airto\Documents\GitHub\CodeLabs\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Aplicacao\bin\Debug\netcoreapp2.0\ModeloDDD.Dominio.pdb
+C:\Users\airto\Documents\GitHub\CodeLabs\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Aplicacao\obj\Debug\netcoreapp2.0\ModeloDDD.Aplicacao.csprojResolveAssemblyReference.cache
+C:\Users\airto\Documents\GitHub\CodeLabs\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Aplicacao\obj\Debug\netcoreapp2.0\ModeloDDD.Aplicacao.csproj.CoreCompileInputs.cache
+C:\Users\airto\Documents\GitHub\CodeLabs\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Aplicacao\obj\Debug\netcoreapp2.0\ModeloDDD.Aplicacao.AssemblyInfoInputs.cache
+C:\Users\airto\Documents\GitHub\CodeLabs\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Aplicacao\obj\Debug\netcoreapp2.0\ModeloDDD.Aplicacao.AssemblyInfo.cs
+C:\Users\airto\Documents\GitHub\CodeLabs\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Aplicacao\obj\Debug\netcoreapp2.0\ModeloDDD.Aplicacao.dll
+C:\Users\airto\Documents\GitHub\CodeLabs\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Aplicacao\obj\Debug\netcoreapp2.0\ModeloDDD.Aplicacao.pdb

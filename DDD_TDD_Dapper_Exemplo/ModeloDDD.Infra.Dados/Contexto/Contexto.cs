@@ -36,32 +36,31 @@ namespace ModeloDDD.Infra.Dados.Contexto
             return key;
         }
 
-        IDbConnection db;
+        public static string GetPropValue(object src, string propName)
+        {
+            return src.GetType().GetProperty(propName).GetValue(src, null).ToString();
+        }
 
-        //TODO: Verificar por que diabos na primeira execução ele dá pau.
+        IDbConnection db;
+        
         public Contexto(IConfiguration config)
         {
             db = new SqlConnection(config.GetConnectionString("ModeloDDDConnection"));
         }
 
-        public List<T> LerTudo<T>()
+        public List<T> Set<T>()
         {
             string tipo = typeof(T).Name;
             return db.Query<T>($"Select * From {tipo} (nolock)").ToList();
         }
 
-        public T ObterPorId<T>(int id)
+        public T Find<T>(int id)
         {
             string key = ObterIdDoObjeto<T>();
             return db.Query<T>($"Select * From {typeof(T).Name} (nolock) WHERE {key} = @Id", new { id }).SingleOrDefault();
         }
-
-        public IEnumerable<T> Where<T>(string param)
-        {
-            return db.Query<T>($"Select * From {typeof(T).Name} (nolock) WHERE {param}").ToList();
-        }
-
-        public int Inserir<T>(T objeto)
+        
+        public int Add<T>(T objeto)
         {
             var props = typeof(T).GetProperties();
 
@@ -78,7 +77,7 @@ namespace ModeloDDD.Infra.Dados.Contexto
             return rowsAffected;
         }
 
-        public int Atualizar<T>(T objeto)
+        public int Update<T>(T objeto)
         {
             string key = ObterIdDoObjeto<T>();
 
@@ -93,9 +92,10 @@ namespace ModeloDDD.Infra.Dados.Contexto
             return rowsAffected;
         }
 
-        public T Deletar<T>(int id)
+        public T Remove<T>(T obj)
         {
             string key = ObterIdDoObjeto<T>();
+            string id = GetPropValue(obj, key);
             return db.Query<T>($"Delete From {typeof(T).Name} WHERE {key} = @Id", new { id }).SingleOrDefault();
         }
 

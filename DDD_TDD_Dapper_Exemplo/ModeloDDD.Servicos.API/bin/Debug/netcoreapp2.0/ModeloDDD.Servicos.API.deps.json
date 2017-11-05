@@ -5231,7 +5231,7 @@
     "Microsoft.Extensions.Configuration/2.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-phSl4L+HD/lCmEnwe8yohBd36fzFk7dVYQBHf5/gkMs0f0aHkMhI2gxp4+GEbr70+XA8RukKjYO3NxKrF76LQQ==",
+      "sha512": "sha512-SsI4RqI8EH00+cYO96tbftlh87sNUv1eeyuBU1XZdQkG0RrHAOjWgl7P0FoLeTSMXJpOnfweeOWj2d1/5H3FxA==",
       "path": "microsoft.extensions.configuration/2.0.0",
       "hashPath": "microsoft.extensions.configuration.2.0.0.nupkg.sha512"
     },
@@ -5644,7 +5644,7 @@
     "ModeloDDD.DTO/1.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-q2IsR7CJZ4a6qE6g30+B3NR9LxloE1n+NnPWhHb8GLcp5j8gH+hPp7yHf1b+PCKz5qbDBWDBPGWnXpjXvzu9fg==",
+      "sha512": "sha512-kcoHIPDPLWsMcNWPqQfMmdjskb/RXaWuwK6ktXysr62d6jE72c5We34pPH8uDXGrCmHZmA4vL2jlym+/WbPEwA==",
       "path": "modeloddd.dto/1.0.0",
       "hashPath": "modeloddd.dto.1.0.0.nupkg.sha512"
     },

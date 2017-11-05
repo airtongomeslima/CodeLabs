@@ -12,7 +12,7 @@
 		</CustomData>
 		<CustomData Category="Reference" Type="Assembly">
 			<Metadata Name="LogicalName" Value="ModeloDDD.Infra.SQL.dll" />
-			<Metadata Name="FileName" Value="C:\USERS\AIRTO\DOCUMENTS\GITHUB\CODELABS\DDD_TDD_DAPPER_EXEMPLO\MODELODDD.INFRA.SQL\OBJ\DEBUG\MODELODDD.INFRA.SQL.DLL" />
+			<Metadata Name="FileName" Value="C:\USERS\AIRTO\DOCUMENTS\GITHUB\CODELABS\CODELABS\DDD_TDD_DAPPER_EXEMPLO\MODELODDD.INFRA.SQL\OBJ\DEBUG\MODELODDD.INFRA.SQL.DLL" />
 			<Metadata Name="AssemblyName" Value="ModeloDDD.Infra.SQL" />
 			<Metadata Name="PermissionSet" Value="SAFE" />
 			<Metadata Name="Owner" Value="" />
@@ -20,7 +20,7 @@
 			<Metadata Name="IsVisible" Value="True" />
 			<Metadata Name="IsModelAware" Value="True" />
 			<Metadata Name="SkipCreationIfEmpty" Value="True" />
-			<Metadata Name="AssemblySymbolsName" Value="C:\Users\airto\Documents\GitHub\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Infra.SQL\obj\Debug\ModeloDDD.Infra.SQL.pdb" />
+			<Metadata Name="AssemblySymbolsName" Value="C:\Users\airto\Documents\GitHub\CodeLabs\CodeLabs\DDD_TDD_Dapper_Exemplo\ModeloDDD.Infra.SQL\obj\Debug\ModeloDDD.Infra.SQL.pdb" />
 		</CustomData>
 		<CustomData Category="SqlCmdVariables" Type="SqlCmdVariable" />
 	</Header>

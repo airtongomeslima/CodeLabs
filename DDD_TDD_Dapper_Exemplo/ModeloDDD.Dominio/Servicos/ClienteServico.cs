@@ -18,7 +18,7 @@ namespace ModeloDDD.Dominio.Servicos
         
         public IEnumerable<Cliente> FiltrarCliente(string filtro)
         {
-            var pagamentos = _repositorio.Where($"");
+            var pagamentos = _repositorio.ObterTodos();
             if (!string.IsNullOrEmpty(filtro))
             {
                 var tsult = pagamentos.SelectMany(t => t.GetType().ToString());

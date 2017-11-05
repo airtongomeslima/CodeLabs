@@ -505,7 +505,7 @@
     "Microsoft.Extensions.Configuration/2.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-phSl4L+HD/lCmEnwe8yohBd36fzFk7dVYQBHf5/gkMs0f0aHkMhI2gxp4+GEbr70+XA8RukKjYO3NxKrF76LQQ==",
+      "sha512": "sha512-SsI4RqI8EH00+cYO96tbftlh87sNUv1eeyuBU1XZdQkG0RrHAOjWgl7P0FoLeTSMXJpOnfweeOWj2d1/5H3FxA==",
       "path": "microsoft.extensions.configuration/2.0.0",
       "hashPath": "microsoft.extensions.configuration.2.0.0.nupkg.sha512"
     },
