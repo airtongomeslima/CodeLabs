@@ -40,6 +40,8 @@ namespace CustomExtensions
 
             throw new ArgumentException("Enum " + e.ToString() + " has no EnumGuid defined!");
         }
+
+
         
     }
 }
