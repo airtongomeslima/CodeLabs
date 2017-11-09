@@ -7,9 +7,8 @@ namespace ModeloDDD.Aplicacao.Interfaces
         void Adicionar(TEntity obj);
         IEnumerable<TEntity> ObterTodos();
         TEntity ObterPorId(int id);
-        IEnumerable<TEntity> Where(string param);
         void Atualizar(TEntity obj);
-        void Remover(int id);
+        void Remover(TEntity obj);
         void Dispose();
     }
 }

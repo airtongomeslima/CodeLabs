@@ -29,19 +29,14 @@ namespace ModeloDDD.Aplicacao
             return _servicoBase.ObterTodos();
         }
 
-        public IEnumerable<TEntity> Where(string param)
-        {
-            return _servicoBase.Where(param);
-        }
-
         public TEntity ObterPorId(int id)
         {
             return _servicoBase.ObterPorId(id);
         }
 
-        public void Remover(int id)
+        public void Remover(TEntity obj)
         {
-            _servicoBase.Remover(id);
+            _servicoBase.Remover(obj);
         }
 
         public void Dispose()

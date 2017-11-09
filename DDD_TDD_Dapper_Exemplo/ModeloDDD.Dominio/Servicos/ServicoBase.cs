@@ -29,14 +29,9 @@ namespace ModeloDDD.Dominio.Servicos
             return _repositorio.ObterTodos();
         }
 
-        public IEnumerable<TEntity> Where(string param)
+        public void Remover(TEntity obj)
         {
-            return _repositorio.Where(param);
-        }
-
-        public void Remover(int id)
-        {
-            _repositorio.Remover(id);
+            _repositorio.Remover(obj);
         }
 
         public void Atualizar(TEntity obj)

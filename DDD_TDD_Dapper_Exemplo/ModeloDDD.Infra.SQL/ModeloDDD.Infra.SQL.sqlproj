@@ -61,4 +61,7 @@
   <ItemGroup>
     <Build Include="Cliente.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Readme.txt" />
+  </ItemGroup>
 </Project>

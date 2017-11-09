@@ -2,46 +2,42 @@
 using ModeloDDD.Dominio.Interfaces.Repositorios;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ModeloDDD.Infra.Dados.Respositorio
 {
     public class RepositorioBase<TEntity> : IDisposable, IRepositorioBase<TEntity> where TEntity : class
     {
-        protected Contexto.Contexto contexto;
+        protected Contexto.ContextoEF contexto;
 
         public RepositorioBase(IConfiguration config)
         {
-            contexto = new Contexto.Contexto(config);
+            contexto = new Contexto.ContextoEF(config);
         }
 
         public void Adicionar(TEntity obj)
         {
-            contexto.Inserir<TEntity>(obj);
+            contexto.Add<TEntity>(obj);
         }
 
         public void Atualizar(TEntity obj)
         {
-            contexto.Atualizar<TEntity>(obj);
+            contexto.Update<TEntity>(obj);
         }
 
         public TEntity ObterPorId(int id)
         {
-            return contexto.ObterPorId<TEntity>(id);
+            return contexto.Find<TEntity>(id);
         }
 
         public IEnumerable<TEntity> ObterTodos()
         {
-            return contexto.LerTudo<TEntity>();
+            return contexto.Set<TEntity>();
         }
 
-        public IEnumerable<TEntity> Where(string param)
+        public void Remover(TEntity obj)
         {
-            return contexto.Where<TEntity>(param);
-        }
-
-        public void Remover(int id)
-        {
-            contexto.Deletar<TEntity>(id);
+            contexto.Remove<TEntity>(obj);
         }
 
         public void Dispose()

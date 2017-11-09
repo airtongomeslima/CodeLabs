@@ -43,12 +43,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="0 - Core\ExtensionString.cs" />
+    <Compile Include="0 - Core\FolderHelper.cs" />
     <Compile Include="0 - Core\SQLTools.cs" />
     <Compile Include="0 - Core\TiposdePastas.cs" />
     <Compile Include="0 - Core\TiposdeProjetos.cs" />
     <Compile Include="1 - Base\A_CreateSolution.cs" />
     <Compile Include="1 - Base\C_CreateProjectAPI.cs" />
     <Compile Include="1 - Base\B_CreateProjectTest.cs" />
+    <Compile Include="1 - Base\F_CreateAplicacao.cs" />
+    <Compile Include="1 - Base\E_CreateDominio.cs" />
     <Compile Include="1 - Base\D_CreateInfraDados.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

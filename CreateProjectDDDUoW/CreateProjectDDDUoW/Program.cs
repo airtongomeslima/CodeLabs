@@ -14,27 +14,17 @@ namespace CreateProjectDDDUoW
         {
             string solucao = "Solucao";
             string conn = "data source=DESKTOP-AORA6GM;initial catalog=semsdb;Integrated Security=False; User Id=sa;Password=160189;";
-            A_CreateSolution createSln = new A_CreateSolution("C:/Teste/", solucao);
-            B_CreateProjectTest createProjectTest = new B_CreateProjectTest(solucao, "C:/Teste/");
-            C_CreateProjectAPI createProjectAPI = new C_CreateProjectAPI(solucao, "C:/Teste/", conn);
+            string endereco = "C:/Teste/";
+
+            A_CreateSolution createSln = new A_CreateSolution(endereco, solucao);
+            B_CreateProjectTest createProjectTest = new B_CreateProjectTest(solucao, endereco);
+            C_CreateProjectAPI createProjectAPI = new C_CreateProjectAPI(solucao, endereco, conn);
 
             List<string> classes = SQLTools.GetTables(conn);
-            Dictionary<string, string> arquivos = SQLTools.GetClasses(classes, conn);
-            foreach (var item in arquivos)
-            {
-                string endereco = $"C:\\Teste\\Solucao\\{solucao}.Dominio\\Entitades";
-                if (!System.IO.Directory.Exists(endereco))
-                {
-                    System.IO.Directory.CreateDirectory(endereco);
-                }
 
-                System.IO.File.WriteAllText(
-                    $"{endereco}\\{item.Key}.cs",
-                    item.Value
-                    );
-
-                //Console.WriteLine($"{item.Key}\r\n{item.Value}\r\n---------------------\r\n\r\n");
-            }
+            D_CreateInfraDados createInfraDados = new D_CreateInfraDados(solucao, endereco, classes, 2);
+            E_CreateDominio criarDominio = new E_CreateDominio(solucao, conn, endereco, classes);
+            F_CreateAplicacao criarAppServico = new F_CreateAplicacao(solucao, conn, endereco, classes);
 
             Console.WriteLine("Solution Criada");
             Console.ReadLine();

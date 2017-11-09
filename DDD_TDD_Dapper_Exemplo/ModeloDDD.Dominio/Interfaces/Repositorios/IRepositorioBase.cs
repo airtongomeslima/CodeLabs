@@ -7,9 +7,8 @@ namespace ModeloDDD.Dominio.Interfaces.Repositorios
         void Adicionar(TEntity obj);
         TEntity ObterPorId(int id);
         IEnumerable<TEntity> ObterTodos();
-        IEnumerable<TEntity> Where(string param);
         void Atualizar(TEntity obj);
-        void Remover(int id);
+        void Remover(TEntity obj);
         void Dispose();
     }
 }

@@ -8,14 +8,18 @@ using System.Text;
 
 namespace ModeloDDD.Infra.Dados.Contexto
 {
-    public partial class CONTEXTOEF : DbContext
+    public partial class ContextoEF : DbContext
     {
-        DbContextOptions<CONTEXTOEF> _options;
+        IConfiguration _config;
 
-        public CONTEXTOEF(IConfiguration config)
-            //: base(options)
+        public ContextoEF(IConfiguration config)
         {
-            _options = null; // TODO: ???
+            _config = config;
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(_config.GetConnectionString("ModeloDDDConnection"));
         }
 
         public virtual DbSet<Cliente> Cliente { get; set; }

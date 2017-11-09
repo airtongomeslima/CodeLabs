@@ -13,6 +13,7 @@ namespace CreateProjectDDDUoW._1___Base
         private static StringBuilder _pRj = new StringBuilder();
 
         protected string _nomeProjeto = "ModeloDDD";
+        protected string _baseSolution = "";
         protected string _enderecoProjeto = "";
 
         /// <summary>
@@ -24,6 +25,7 @@ namespace CreateProjectDDDUoW._1___Base
         {
             _nomeProjeto = $"{nomeSolucao}.Test";
             _enderecoProjeto = $"{enderecoRaiz}\\{nomeSolucao}\\{_nomeProjeto}";
+            _baseSolution = nomeSolucao;
             CreateProject();
 
             if (!Directory.Exists(_enderecoProjeto))

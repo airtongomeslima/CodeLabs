@@ -32,7 +32,7 @@ namespace CreateProjectDDDUoW._0___Core
             }
         }
 
-        public static string GetClass(string connectionString, string tableName)
+        public static string GetClass(string connectionString, string tableName, string nomeProjeto)
         {
             string result = "";
             string schema = tableName.Split('.')[0];
@@ -42,7 +42,7 @@ namespace CreateProjectDDDUoW._0___Core
                 $"declare @TableName sysname = '{tableName}' " +
                 $"declare @Result varchar(max) = '"+
                 $"using System;\r\nusing System.ComponentModel.DataAnnotations;\r\nusing System.ComponentModel.DataAnnotations.Schema;\r\n\r\n" +
-                $"namespace ModeloTDD.Dominio.Entitades\r\n{{\r\n" +
+                $"namespace {nomeProjeto}.Entitades\r\n{{\r\n" +
                 $"\t[Table(\"{tabela}\", Schema = \"{schema}\")]\r\n" +
                 $"\tpublic class {tabela}\r\n\t{{\r\n\t\t[Key]' " +
                 $"select @Result = @Result + " +
@@ -103,13 +103,20 @@ namespace CreateProjectDDDUoW._0___Core
 
         }
 
-        public static Dictionary<string, string> GetClasses(List<string> tabelas, string connectionString)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tabelas"></param>
+        /// <param name="connectionString"></param>
+        /// <param name="nomeProjeto">ProjetoX.Dominio</param>
+        /// <returns></returns>
+        public static Dictionary<string, string> GetClasses(List<string> tabelas, string connectionString, string nomeProjeto)
         {
             Dictionary<string, string> classes = new Dictionary<string, string>();
 
             foreach (var table in tabelas)
             {
-                classes.Add(table, GetClass(connectionString, table));
+                classes.Add(table, GetClass(connectionString, table, nomeProjeto));
             }
 
             return classes;
