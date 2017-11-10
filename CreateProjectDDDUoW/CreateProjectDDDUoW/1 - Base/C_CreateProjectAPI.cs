@@ -23,7 +23,7 @@ namespace CreateProjectDDDUoW._1___Base
         /// </summary>
         /// <param name="nomeSolucao">Nome do projeto (ex. ModeloDDD, não precisa colocar o .Test nem o .csproj)</param>
         /// <param name="enderecoRaiz"></param>
-        public C_CreateProjectAPI(string nomeSolucao, string enderecoRaiz, string connectionString)
+        public C_CreateProjectAPI(string nomeSolucao, string enderecoRaiz, string connectionString, List<string> entidades)
         {
             _nomeProjeto = $"{nomeSolucao}.Servicos.API";
             _enderecoProjeto = $"{enderecoRaiz}\\{nomeSolucao}\\{_nomeProjeto}";
@@ -33,9 +33,8 @@ namespace CreateProjectDDDUoW._1___Base
             CreateAppSettingsJson();
             CreateAppSettingsJsonDevelopment();
             CreateProgramCS();
-            CreateStartup();
-
-            CreateStartup();
+            CreateStartup(entidades);
+            
             CreateErrorView();
             CreateViewStart();
             CreateAutoMapperConfig();
@@ -100,8 +99,8 @@ namespace CreateProjectDDDUoW._1___Base
             arquivo.AppendLine("</ItemGroup>", 1);
             arquivo.AppendLine("");
             arquivo.AppendLine("<ItemGroup>", 1);
-            arquivo.AppendLine($"<ProjectReference Include=\"..\\{_baseSolution}.Aplicacao\\{_baseSolution}.Aplicacao.csproj\\\" />", 2);
-            arquivo.AppendLine($"<ProjectReference Include=\"..\\{_baseSolution}.Infra.Dados\\{_baseSolution}.Infra.Dados.csproj\\\" />", 2);
+            arquivo.AppendLine($"<ProjectReference Include=\"..\\{_baseSolution}.Aplicacao\\{_baseSolution}.Aplicacao.csproj\" />", 2);
+            arquivo.AppendLine($"<ProjectReference Include=\"..\\{_baseSolution}.Infra.Dados\\{_baseSolution}.Infra.Dados.csproj\" />", 2);
             arquivo.AppendLine("</ItemGroup>", 1);
             arquivo.AppendLine("");
             arquivo.AppendLine("</Project>");
@@ -194,7 +193,7 @@ namespace CreateProjectDDDUoW._1___Base
             arquivos.Add(endereco, arquivo);
         }
 
-        public void CreateStartup()
+        public void CreateStartup(List<string> entidades)
         {
             StringBuilder arquivo = new StringBuilder();
 
@@ -206,12 +205,12 @@ namespace CreateProjectDDDUoW._1___Base
             arquivo.AppendLine("using System.IO;");
             arquivo.AppendLine("");
             arquivo.AppendLine("using Swashbuckle.AspNetCore.Swagger;");
-            arquivo.AppendLine($"using {_baseSolution}.Aplicacao;");
             arquivo.AppendLine($"using {_baseSolution}.Aplicacao.Interfaces;");
             arquivo.AppendLine($"using {_baseSolution}.Dominio.Servicos;");
             arquivo.AppendLine($"using {_baseSolution}.Dominio.Interfaces.Repositorios;");
             arquivo.AppendLine($"using {_baseSolution}.Dominio.Interfaces.Servicos;");
-            arquivo.AppendLine($"using {_baseSolution}.Infra.Dados.Repositorios;");
+            arquivo.AppendLine($"using {_baseSolution}.Infra.Dados.Repositorio;");
+            arquivo.AppendLine($"using {_baseSolution}.Aplicacao.Aplicacao;");
             arquivo.AppendLine("");
             arquivo.AppendLine($"namespace {_nomeProjeto}");
             arquivo.AppendLine("{");
@@ -237,14 +236,24 @@ namespace CreateProjectDDDUoW._1___Base
             arquivo.AppendLine("services.AddSingleton(Configuration);", 3);
             arquivo.AppendLine("services.AddApiVersioning();", 3);
             arquivo.AppendLine("");
-            arquivo.AppendLine("#region", 3);
-            arquivo.AppendLine("services.AddScoped(typeof(IClienteRepositorio), typeof(ClienteRepositorio));", 4);
-            arquivo.AppendLine("services.AddScoped(typeof(IClienteServico), typeof(ClienteServico));", 4);
-            arquivo.AppendLine("services.AddScoped(typeof(IClienteAppServico), typeof(ClienteAppServico));", 4);
-            arquivo.AppendLine("");
-            arquivo.AppendLine("services.AddScoped(typeof(IProdutoRepositorio), typeof(ProdutoRepositorio));", 4);
-            arquivo.AppendLine("services.AddScoped(typeof(IClienteServico), typeof(ClienteServico));", 4);
-            arquivo.AppendLine("services.AddScoped(typeof(IProdutoAppServico), typeof(ProdutoAppServico));", 4);
+            arquivo.AppendLine("#region Declaracoes", 3);
+
+
+            foreach (var e in entidades)
+            {
+
+                var r = e;
+                if (e.Contains("."))
+                {
+                    r = e.Split('.')[1];
+                }
+
+                arquivo.AppendLine($"services.AddScoped(typeof(I{r}Repositorio), typeof({r}Repositorio));", 4);
+                arquivo.AppendLine($"services.AddScoped(typeof(I{r}Servico), typeof({r}Servico));", 4);
+                arquivo.AppendLine($"services.AddScoped(typeof(I{r}AppServico), typeof({r}AppServico));", 4);
+            }
+            
+
             arquivo.AppendLine("#endregion", 3);
             arquivo.AppendLine("");
             arquivo.AppendLine("");

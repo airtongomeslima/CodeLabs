@@ -62,7 +62,7 @@ namespace CreateProjectDDDUoW._1___Base
             arquivo.AppendLine("  </PropertyGroup>", 1);
             arquivo.AppendLine("");
             arquivo.AppendLine("  <ItemGroup>", 1);
-            arquivo.AppendLine($"    <ProjectReference Include=\"..\\{_baseSolution}.Dominio\\ModeloDDD.Dominio.csproj\" />", 2);
+            arquivo.AppendLine($"    <ProjectReference Include=\"..\\{_baseSolution}.Dominio\\{_baseSolution}.Dominio.csproj\" />", 2);
             arquivo.AppendLine("  </ItemGroup>", 1);
             arquivo.AppendLine("");
             arquivo.AppendLine("</Project>");
@@ -78,18 +78,19 @@ namespace CreateProjectDDDUoW._1___Base
 
             arquivo.AppendLine("using System.Collections.Generic;");
             arquivo.AppendLine("");
-            arquivo.AppendLine($"namespace {_nomeProjeto}.Interfaces.Repositorios");
+            arquivo.AppendLine($"namespace {_nomeProjeto}.Interfaces");
             arquivo.AppendLine("{");
-            arquivo.AppendLine("public interface IRepositorioBase<TEntity> where TEntity : class", 1);
-            arquivo.AppendLine("{", 1);
-            arquivo.AppendLine("void Adicionar(TEntity obj);", 3);
-            arquivo.AppendLine("TEntity ObterPorId(int id);", 3);
-            arquivo.AppendLine("IEnumerable<TEntity> ObterTodos();", 3);
-            arquivo.AppendLine("void Atualizar(TEntity obj);", 3);
-            arquivo.AppendLine("void Remover(TEntity obj);", 3);
-            arquivo.AppendLine("void Dispose();", 3);
-            arquivo.AppendLine("}", 1);
+            arquivo.AppendLine("    public interface IAppServicoBase<TEntity> where TEntity : class", 1);
+            arquivo.AppendLine("    {", 1);
+            arquivo.AppendLine("        void Adicionar(TEntity obj);", 2);
+            arquivo.AppendLine("        IEnumerable<TEntity> ObterTodos();", 2);
+            arquivo.AppendLine("        TEntity ObterPorId(int id);", 2);
+            arquivo.AppendLine("        void Atualizar(TEntity obj);", 2);
+            arquivo.AppendLine("        void Remover(TEntity obj);", 2);
+            arquivo.AppendLine("        void Dispose();", 2);
+            arquivo.AppendLine("    }", 1);
             arquivo.AppendLine("}");
+
 
             FolderHelper.Create($"{_enderecoProjeto}\\Interfaces");
             string endereco = $"Interfaces\\IAppServicoBase.cs";
@@ -98,7 +99,6 @@ namespace CreateProjectDDDUoW._1___Base
 
         public void CreateIRepositorioAppServico(List<string> repositorios)
         {
-
             foreach (var repo in repositorios)
             {
                 var repos = repo;
@@ -109,15 +109,15 @@ namespace CreateProjectDDDUoW._1___Base
 
                 StringBuilder arquivo = new StringBuilder();
 
-                arquivo.AppendLine($"using {_nomeProjeto}.Entitades;");
+                arquivo.AppendLine($"using {_baseSolution}.Dominio.Entitades;");
+                arquivo.AppendLine("using System.Collections.Generic;");
                 arquivo.AppendLine("");
-                arquivo.AppendLine($"namespace {_nomeProjeto}.Interfaces.Repositorios");
+                arquivo.AppendLine($"namespace {_nomeProjeto}.Interfaces");
                 arquivo.AppendLine("{");
-                arquivo.AppendLine($"public interface I{repos}Repositorio : IRepositorioBase<{repos}>", 1);
+                arquivo.AppendLine($"public interface I{repos}AppServico : IAppServicoBase<{repos}>", 1);
                 arquivo.AppendLine("{", 1);
                 arquivo.AppendLine("}", 1);
                 arquivo.AppendLine("}");
-
 
                 FolderHelper.Create($"{_enderecoProjeto}\\Interfaces");
                 string endereco = $"Interfaces\\I{repos}AppServico.cs";
@@ -129,21 +129,53 @@ namespace CreateProjectDDDUoW._1___Base
         {
             StringBuilder arquivo = new StringBuilder();
 
+            arquivo.AppendLine($"using {_nomeProjeto}.Interfaces;");
+            arquivo.AppendLine($"using {_baseSolution}.Dominio.Interfaces.Servicos;");
+            arquivo.AppendLine("using System;");
             arquivo.AppendLine("using System.Collections.Generic;");
             arquivo.AppendLine("");
-            arquivo.AppendLine($"namespace {_nomeProjeto}.Interfaces.Servicos");
+            arquivo.AppendLine($"namespace {_nomeProjeto}");
             arquivo.AppendLine("{");
-            arquivo.AppendLine("    public interface IServicoBase<TEntity> where TEntity : class", 1);
-            arquivo.AppendLine("    {", 1);
-            arquivo.AppendLine("        void Adicionar(TEntity obj);", 2);
-            arquivo.AppendLine("        IEnumerable<TEntity> ObterTodos();", 2);
-            arquivo.AppendLine("        TEntity ObterPorId(int id);", 2);
-            arquivo.AppendLine("        void Atualizar(TEntity obj);", 2);
-            arquivo.AppendLine("        void Remover(TEntity obj);", 2);
-            arquivo.AppendLine("        void Dispose();", 2);
-            arquivo.AppendLine("    }", 1);
+            arquivo.AppendLine("public class AppServicoBase<TEntity> : IDisposable, IAppServicoBase<TEntity> where TEntity : class", 1);
+            arquivo.AppendLine("{", 1);
+            arquivo.AppendLine("private readonly IServicoBase<TEntity> _servicoBase;", 2);
+            arquivo.AppendLine("");
+            arquivo.AppendLine("public AppServicoBase(IServicoBase<TEntity> servicoBase)", 2);
+            arquivo.AppendLine("{", 2);
+            arquivo.AppendLine("_servicoBase = servicoBase;", 3);
+            arquivo.AppendLine("}", 2);
+            arquivo.AppendLine("");
+            arquivo.AppendLine("public void Adicionar(TEntity obj)", 2);
+            arquivo.AppendLine("{", 2);
+            arquivo.AppendLine("_servicoBase.Adicionar(obj);", 3);
+            arquivo.AppendLine("}", 2);
+            arquivo.AppendLine("");
+            arquivo.AppendLine("public void Atualizar(TEntity obj)", 2);
+            arquivo.AppendLine("{", 2);
+            arquivo.AppendLine("_servicoBase.Atualizar(obj);", 3);
+            arquivo.AppendLine("}", 2);
+            arquivo.AppendLine("");
+            arquivo.AppendLine("public IEnumerable<TEntity> ObterTodos()", 2);
+            arquivo.AppendLine("{", 2);
+            arquivo.AppendLine("return _servicoBase.ObterTodos();", 3);
+            arquivo.AppendLine("}", 2);
+            arquivo.AppendLine("");
+            arquivo.AppendLine("public TEntity ObterPorId(int id)", 2);
+            arquivo.AppendLine("{", 2);
+            arquivo.AppendLine("return _servicoBase.ObterPorId(id);", 3);
+            arquivo.AppendLine("}", 2);
+            arquivo.AppendLine("");
+            arquivo.AppendLine("public void Remover(TEntity obj)", 2);
+            arquivo.AppendLine("{", 2);
+            arquivo.AppendLine("_servicoBase.Remover(obj);", 3);
+            arquivo.AppendLine("}", 2);
+            arquivo.AppendLine("");
+            arquivo.AppendLine("public void Dispose()", 2);
+            arquivo.AppendLine("{", 2);
+            arquivo.AppendLine("_servicoBase.Dispose();", 3);
+            arquivo.AppendLine("}", 2);
+            arquivo.AppendLine("}", 1);
             arquivo.AppendLine("}");
-
 
             FolderHelper.Create($"{_enderecoProjeto}");
             string endereco = $"AppServicoBase.cs";
@@ -162,17 +194,23 @@ namespace CreateProjectDDDUoW._1___Base
                 }
                 StringBuilder arquivo = new StringBuilder();
 
-                arquivo.AppendLine($"using {_nomeProjeto}.Entitades;");
-                arquivo.AppendLine($"using {_nomeProjeto}.Interfaces.Servicos;");
                 arquivo.AppendLine("using System.Collections.Generic;");
+                arquivo.AppendLine($"using {_nomeProjeto}.Interfaces;");
+                arquivo.AppendLine($"using {_baseSolution}.Dominio.Entitades;");
+                arquivo.AppendLine($"using {_baseSolution}.Dominio.Interfaces.Servicos;");
                 arquivo.AppendLine("");
-                arquivo.AppendLine($"namespace {_nomeProjeto}.Interfaces.Servicos");
+                arquivo.AppendLine($"namespace {_nomeProjeto}.Aplicacao");
                 arquivo.AppendLine("{");
-                arquivo.AppendLine($"public interface I{repos}Servico : IServicoBase<{repos}>", 1);
+                arquivo.AppendLine($"public class {repos}AppServico : AppServicoBase<{repos}>, I{repos}AppServico", 1);
                 arquivo.AppendLine("{", 1);
+                arquivo.AppendLine($"private readonly I{repos}Servico _servico;", 2);
+                arquivo.AppendLine("");
+                arquivo.AppendLine($"public {repos}AppServico(I{repos}Servico servico) : base(servico)", 2);
+                arquivo.AppendLine("{", 2);
+                arquivo.AppendLine("_servico = servico;", 3);
+                arquivo.AppendLine("}", 2);
                 arquivo.AppendLine("}", 1);
                 arquivo.AppendLine("}");
-
 
                 FolderHelper.Create($"{_enderecoProjeto}");
                 string endereco = $"{repos}AppServico.cs";

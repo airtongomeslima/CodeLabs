@@ -2,7 +2,6 @@
 using ModeloDDD.Aplicacao.Interfaces;
 using ModeloDDD.Dominio.Entitades;
 using ModeloDDD.Dominio.Interfaces.Servicos;
-using System;
 
 namespace ModeloDDD.Aplicacao
 {
