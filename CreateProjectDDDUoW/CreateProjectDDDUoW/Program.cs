@@ -23,6 +23,8 @@ namespace CreateProjectDDDUoW
             D_CreateInfraDados createInfraDados = new D_CreateInfraDados(solucao, endereco, classes, 2);
             E_CreateDominio criarDominio = new E_CreateDominio(solucao, conn, endereco, classes);
             F_CreateAplicacao criarAppServico = new F_CreateAplicacao(solucao, conn, endereco, classes);
+            G_CreateInfraSQL createInfraSQL = new G_CreateInfraSQL(solucao, conn, endereco, classes);
+            H_CreateDTOProject createDTOProject = new H_CreateDTOProject(solucao, conn, endereco, classes);
 
             Console.WriteLine("Solution Criada");
             Console.ReadLine();

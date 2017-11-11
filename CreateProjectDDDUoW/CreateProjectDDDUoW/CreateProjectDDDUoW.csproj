@@ -50,6 +50,8 @@
     <Compile Include="1 - Base\A_CreateSolution.cs" />
     <Compile Include="1 - Base\C_CreateProjectAPI.cs" />
     <Compile Include="1 - Base\B_CreateProjectTest.cs" />
+    <Compile Include="1 - Base\H_CreateDTOProject.cs" />
+    <Compile Include="1 - Base\G_CreateInfraSQL.cs" />
     <Compile Include="1 - Base\F_CreateAplicacao.cs" />
     <Compile Include="1 - Base\E_CreateDominio.cs" />
     <Compile Include="1 - Base\D_CreateInfraDados.cs" />

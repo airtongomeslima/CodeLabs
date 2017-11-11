@@ -116,7 +116,7 @@ namespace CreateProjectDDDUoW._1___Base
             _sLN.AppendLine(CriarLinhaFolder(guidClass.ToString(), $"{_nomeSolution}.Servicos.API", $"{_nomeSolution}.Servicos.API\\{_nomeSolution}.Servicos.API.csproj", Guid.NewGuid().ToString()));
             _sLN.AppendLine(CriarLinhaFolder(guidClass.ToString(), $"{_nomeSolution}.Aplicacao", $"{_nomeSolution}.Aplicacao\\{_nomeSolution}.Aplicacao.csproj", Guid.NewGuid().ToString()));
             _sLN.AppendLine(CriarLinhaFolder(guidClass.ToString(), $"{_nomeSolution}.Dominio", $"{_nomeSolution}.Dominio\\{_nomeSolution}.Dominio.csproj", Guid.NewGuid().ToString()));
-            _sLN.AppendLine(CriarLinhaFolder(guidSQL.ToString(), $"{_nomeSolution}.Infra.SQL", $"{_nomeSolution}.Infra.SQL\\{_nomeSolution}.Infra.SQL.sqlproj", Guid.NewGuid().ToString()));
+            //_sLN.AppendLine(CriarLinhaFolder(guidSQL.ToString(), $"{_nomeSolution}.Infra.SQL", $"{_nomeSolution}.Infra.SQL\\{_nomeSolution}.Infra.SQL.sqlproj", Guid.NewGuid().ToString()));
             _sLN.AppendLine(CriarLinhaFolder(guidClass.ToString(), $"{_nomeSolution}.Infra.Dados", $"{_nomeSolution}.Infra.Dados\\{_nomeSolution}.Infra.Dados.csproj", Guid.NewGuid().ToString()));
             _sLN.AppendLine(CriarLinhaFolder(guidClass.ToString(), $"{_nomeSolution}.DTO", $"{_nomeSolution}.DTO\\{_nomeSolution}.DTO.csproj", Guid.NewGuid().ToString()));
         }
@@ -161,7 +161,7 @@ namespace CreateProjectDDDUoW._1___Base
             _sLN.AppendLine($"{{{_projetos[$"{_nomeSolution}.Dominio"]}}} = {{{_pastas["4 - Dominio"]}}}", 2);
             _sLN.AppendLine($"{{{_pastas["5.1 - CrossCutting"]}}} = {{{_pastas["5 - Infra"]}}}", 2);
             _sLN.AppendLine($"{{{_pastas["5.2 - Dados"]}}} = {{{_pastas["5 - Infra"]}}}", 2);
-            _sLN.AppendLine($"{{{_sQLProjetos[$"{_nomeSolution}.Infra.SQL"]}}} = {{{_pastas["5.2 - Dados"]}}}", 2);
+            //_sLN.AppendLine($"{{{_sQLProjetos[$"{_nomeSolution}.Infra.SQL"]}}} = {{{_pastas["5.2 - Dados"]}}}", 2);
             _sLN.AppendLine($"{{{_projetos[$"{_nomeSolution}.Infra.Dados"]}}} = {{{_pastas["5.2 - Dados"]}}}", 2);
             _sLN.AppendLine($"{{{_projetos[$"{_nomeSolution}.DTO"]}}} = {{{_pastas["6 - DTO"]}}}", 2);
 
