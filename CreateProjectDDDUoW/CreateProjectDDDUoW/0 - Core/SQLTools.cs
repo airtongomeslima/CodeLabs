@@ -44,7 +44,7 @@ namespace CreateProjectDDDUoW._0___Core
                 $"using System;\r\nusing System.ComponentModel.DataAnnotations;\r\nusing System.ComponentModel.DataAnnotations.Schema;\r\n\r\n" +
                 $"namespace {nomeProjeto}.Entitades\r\n{{\r\n" +
                 $"\t[Table(\"{tabela}\", Schema = \"{schema}\")]\r\n" +
-                $"\tpublic class {tabela}\r\n\t{{\r\n\t\t[Key]' " +
+                $"\tpublic class {tabela}Entity\r\n\t{{\r\n\t\t[Key]' " +
                 $"select @Result = @Result + " +
                 $" ColumnType + NullableSign + ' ' + ColumnName + ' {{ get; set; }}' " +
                 $"from (select  replace(col.name, ' ', '_') ColumnName, column_id ColumnId, case typ.name" +
