@@ -13,7 +13,7 @@ namespace CreateProjectDDDUoW
         static void Main(string[] args)
         {
             string solucao = "Solucao";
-            string conn = "data source=DESKTOP-AORA6GM;initial catalog=semsdb;Integrated Security=False; User Id=sa;Password=160189;";
+            string conn = "data source=./;initial catalog=semsdb;Integrated Security=False; User Id=sa;Password=160189;";
             string endereco = "C:/Teste/";
             List<string> classes = SQLTools.GetTables(conn);
 
