@@ -1043,7 +1043,7 @@
       ]
     },
     "Microsoft.Extensions.Configuration/2.0.0": {
-      "sha512": "phSl4L+HD/lCmEnwe8yohBd36fzFk7dVYQBHf5/gkMs0f0aHkMhI2gxp4+GEbr70+XA8RukKjYO3NxKrF76LQQ==",
+      "sha512": "SsI4RqI8EH00+cYO96tbftlh87sNUv1eeyuBU1XZdQkG0RrHAOjWgl7P0FoLeTSMXJpOnfweeOWj2d1/5H3FxA==",
       "type": "package",
       "path": "microsoft.extensions.configuration/2.0.0",
       "files": [
@@ -3441,11 +3441,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Infra.Dados\\ModeloDDD.Infra.Dados.csproj",
+      "projectUniqueName": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Infra.Dados\\ModeloDDD.Infra.Dados.csproj",
       "projectName": "ModeloDDD.Infra.Dados",
-      "projectPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Infra.Dados\\ModeloDDD.Infra.Dados.csproj",
+      "projectPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Infra.Dados\\ModeloDDD.Infra.Dados.csproj",
       "packagesPath": "C:\\Users\\airto\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Infra.Dados\\obj\\",
+      "outputPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Infra.Dados\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -3465,8 +3465,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Dominio\\ModeloDDD.Dominio.csproj": {
-              "projectPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Dominio\\ModeloDDD.Dominio.csproj"
+            "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Dominio\\ModeloDDD.Dominio.csproj": {
+              "projectPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Dominio\\ModeloDDD.Dominio.csproj"
             }
           }
         }

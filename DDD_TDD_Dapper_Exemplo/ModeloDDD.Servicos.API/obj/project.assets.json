@@ -150,6 +150,39 @@
           "lib/netstandard1.6/Microsoft.AI.DependencyCollector.dll": {}
         }
       },
+      "Microsoft.AspNet.WebApi.Client/5.2.3": {
+        "type": "package",
+        "compile": {
+          "lib/net45/System.Net.Http.Formatting.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Net.Http.Formatting.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebApi.Core/5.2.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Client": "5.2.3"
+        },
+        "compile": {
+          "lib/net45/System.Web.Http.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Web.Http.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebApi.WebHost/5.2.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Core": "[5.2.3, 5.3.0)"
+        },
+        "compile": {
+          "lib/net45/System.Web.Http.WebHost.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Web.Http.WebHost.dll": {}
+        }
+      },
       "Microsoft.AspNetCore/2.0.0": {
         "type": "package",
         "dependencies": {
@@ -5322,6 +5355,42 @@
         "microsoft.applicationinsights.dependencycollector.nuspec"
       ]
     },
+    "Microsoft.AspNet.WebApi.Client/5.2.3": {
+      "sha512": "3kiI8peSXbXHDDrRuo+QaX0iCEVRe0nvn2dBDRw656uPX32UalbBlSIDUDlJxu05eau4tnuhsikiUuugvvoUoQ==",
+      "type": "package",
+      "path": "microsoft.aspnet.webapi.client/5.2.3",
+      "files": [
+        "Microsoft.AspNet.WebApi.Client.5.2.3.nupkg.sha512",
+        "Microsoft.AspNet.WebApi.Client.nuspec",
+        "lib/net45/System.Net.Http.Formatting.dll",
+        "lib/net45/System.Net.Http.Formatting.xml",
+        "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.dll",
+        "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.xml"
+      ]
+    },
+    "Microsoft.AspNet.WebApi.Core/5.2.3": {
+      "sha512": "o90QYlRV8VKR1S7+EcJw9w8WSyVFLl+IIzN8ILZ+n2t6rsc/KS8kBxRzA7wCFPRUHhebCfLqilBk39phvanx3g==",
+      "type": "package",
+      "path": "microsoft.aspnet.webapi.core/5.2.3",
+      "files": [
+        "Content/web.config.transform",
+        "Microsoft.AspNet.WebApi.Core.5.2.3.nupkg.sha512",
+        "Microsoft.AspNet.WebApi.Core.nuspec",
+        "lib/net45/System.Web.Http.dll",
+        "lib/net45/System.Web.Http.xml"
+      ]
+    },
+    "Microsoft.AspNet.WebApi.WebHost/5.2.3": {
+      "sha512": "bhm4/BKdS3t6nK2R3NjCpxulcwtMFiHqVBDLuN3W5So1PhZfE+RBs7eVazGOhsEKCk7PoSmiSnl9DG0cpyfHtA==",
+      "type": "package",
+      "path": "microsoft.aspnet.webapi.webhost/5.2.3",
+      "files": [
+        "Microsoft.AspNet.WebApi.WebHost.5.2.3.nupkg.sha512",
+        "Microsoft.AspNet.WebApi.WebHost.nuspec",
+        "lib/net45/System.Web.Http.WebHost.dll",
+        "lib/net45/System.Web.Http.WebHost.xml"
+      ]
+    },
     "Microsoft.AspNetCore/2.0.0": {
       "sha512": "Pp4CNfgJgKTyU+oRQYh6InA1lwcZLi5ZsfTxWwixagbRsVdWrROBFnKGw+FvbbuzKNyMn4Cg5zRv99LjqxVIJA==",
       "type": "package",
@@ -6742,7 +6811,7 @@
       ]
     },
     "Microsoft.Extensions.Configuration/2.0.0": {
-      "sha512": "phSl4L+HD/lCmEnwe8yohBd36fzFk7dVYQBHf5/gkMs0f0aHkMhI2gxp4+GEbr70+XA8RukKjYO3NxKrF76LQQ==",
+      "sha512": "SsI4RqI8EH00+cYO96tbftlh87sNUv1eeyuBU1XZdQkG0RrHAOjWgl7P0FoLeTSMXJpOnfweeOWj2d1/5H3FxA==",
       "type": "package",
       "path": "microsoft.extensions.configuration/2.0.0",
       "files": [
@@ -8059,7 +8128,7 @@
       ]
     },
     "ModeloDDD.DTO/1.0.0": {
-      "sha512": "q2IsR7CJZ4a6qE6g30+B3NR9LxloE1n+NnPWhHb8GLcp5j8gH+hPp7yHf1b+PCKz5qbDBWDBPGWnXpjXvzu9fg==",
+      "sha512": "kcoHIPDPLWsMcNWPqQfMmdjskb/RXaWuwK6ktXysr62d6jE72c5We34pPH8uDXGrCmHZmA4vL2jlym+/WbPEwA==",
       "type": "package",
       "path": "modeloddd.dto/1.0.0",
       "files": [
@@ -13427,6 +13496,8 @@
     ".NETCoreApp,Version=v2.0": [
       "AutoMapper >= 6.1.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 3.0.1",
+      "Microsoft.AspNet.WebApi.Client >= 5.2.3",
+      "Microsoft.AspNet.WebApi.WebHost >= 5.2.3",
       "Microsoft.AspNetCore.All >= 2.0.0",
       "Microsoft.AspNetCore.Mvc.Versioning >= 2.0.0",
       "Microsoft.NETCore.App >= 2.0.0",
@@ -13447,11 +13518,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Servicos.API\\ModeloDDD.Servicos.API.csproj",
+      "projectUniqueName": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Servicos.API\\ModeloDDD.Servicos.API.csproj",
       "projectName": "ModeloDDD.Servicos.API",
-      "projectPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Servicos.API\\ModeloDDD.Servicos.API.csproj",
+      "projectPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Servicos.API\\ModeloDDD.Servicos.API.csproj",
       "packagesPath": "C:\\Users\\airto\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Servicos.API\\obj\\",
+      "outputPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Servicos.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13471,11 +13542,11 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Aplicacao\\ModeloDDD.Aplicacao.csproj": {
-              "projectPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Aplicacao\\ModeloDDD.Aplicacao.csproj"
+            "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Aplicacao\\ModeloDDD.Aplicacao.csproj": {
+              "projectPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Aplicacao\\ModeloDDD.Aplicacao.csproj"
             },
-            "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Infra.Dados\\ModeloDDD.Infra.Dados.csproj": {
-              "projectPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Infra.Dados\\ModeloDDD.Infra.Dados.csproj"
+            "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Infra.Dados\\ModeloDDD.Infra.Dados.csproj": {
+              "projectPath": "C:\\Users\\airto\\Documents\\GitHub\\CodeLabs\\CodeLabs\\DDD_TDD_Dapper_Exemplo\\ModeloDDD.Infra.Dados\\ModeloDDD.Infra.Dados.csproj"
             }
           }
         }
@@ -13506,6 +13577,10 @@
             "version": "2.0.0",
             "autoReferenced": true
           },
+          "Microsoft.AspNet.WebApi.WebHost": {
+            "target": "Package",
+            "version": "5.2.3"
+          },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "1.0.0"
@@ -13513,6 +13588,10 @@
           "AutoMapper": {
             "target": "Package",
             "version": "6.1.1"
+          },
+          "Microsoft.AspNet.WebApi.Client": {
+            "target": "Package",
+            "version": "5.2.3"
           },
           "Microsoft.AspNetCore.All": {
             "target": "Package",
@@ -13530,5 +13609,37 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebApi.Client 5.2.3' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebApi.Client",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebApi.Core 5.2.3' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebApi.Core",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebApi.WebHost 5.2.3' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebApi.WebHost",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    }
+  ]
 }

@@ -5,6 +5,7 @@ using ModeloDDD.Aplicacao.Interfaces;
 using AutoMapper;
 using ModeloDDD.DTO;
 using ModeloDDD.Dominio.Entitades;
+using ModeloDDD.Servicos.API.Helpers;
 
 namespace ModeloDDD.Servicos.API.Controllers
 {
@@ -14,10 +15,12 @@ namespace ModeloDDD.Servicos.API.Controllers
     public class ClienteController : Controller
     {
         protected IClienteAppServico _servico;
+        HttpResult<ClienteDTO> _result;
 
         public ClienteController(IClienteAppServico servico)
         {
             _servico = servico;
+            _result = new HttpResult<ClienteDTO>();
         }
 
         // GET api/values
@@ -25,8 +28,9 @@ namespace ModeloDDD.Servicos.API.Controllers
         public IEnumerable<ClienteDTO> Get()
         {
             var pagamentos = Mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteDTO>>(_servico.ObterTodos());
-
-            return pagamentos;
+            _result.Data = pagamentos;
+            
+            return _result;
         }
 
         // GET api/values/5
