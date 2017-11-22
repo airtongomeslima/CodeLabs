@@ -22,7 +22,7 @@ namespace CreateProjectDDDUoW._0___Core
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                DataTable schema = connection.GetSchema("Tables");
+                DataTable schema = connection.GetSchema("Tables", new string[] { null, null, null, "BASE TABLE" });
                 List<string> TableNames = new List<string>();
                 foreach (DataRow row in schema.Rows)
                 {
@@ -47,36 +47,40 @@ namespace CreateProjectDDDUoW._0___Core
                 $"\tpublic class {tabela}Entity\r\n\t{{\r\n\t\t[Key]' " +
                 $"select @Result = @Result + " +
                 $" ColumnType + NullableSign + ' ' + ColumnName + ' {{ get; set; }}' " +
-                $"from (select  replace(col.name, ' ', '_') ColumnName, column_id ColumnId, case typ.name" +
-                $" when 'bigint' then '\r\n\t\tpublic long'" +
-                $" when 'binary' then '\r\n\t\tpublic byte[]'" +
-                $" when 'bit' then '\r\n\t\tpublic bool'" +
-                $" when 'char' then '\r\n\t\tpublic string'" +
-                $" when 'date' then '\r\n\t\tpublic DateTime'" +
-                $" when 'datetime' then '\r\n\t\tpublic DateTime'" +
-                $" when 'datetime2' then '\r\n\t\tpublic DateTime'" +
-                $" when 'datetimeoffset' then '\r\n\t\tpublic DateTimeOffset'" +
-                $" when 'decimal' then '\r\n\t\tpublic decimal'" +
-                $" when 'float' then '\r\n\t\tpublic float'" +
-                $" when 'image' then '\r\n\t\tpublic byte[]'" +
-                $" when 'int' then '\r\n\t\tpublic int'" +
-                $" when 'money' then '\r\n\t\tpublic decimal'" +
-                $" when 'nchar' then '\r\n\t\tpublic string'" +
-                $" when 'ntext' then '\r\n\t\tpublic string'" +
-                $" when 'numeric' then '\r\n\t\tpublic decimal'" +
-                $" when 'nvarchar' then '\r\n\t\tpublic string'" +
-                $" when 'real' then '\r\n\t\tpublic double'" +
-                $" when 'smalldatetime' then '\r\n\t\tpublic DateTime'" +
-                $" when 'smallint' then '\r\n\t\tpublic short'" +
-                $" when 'smallmoney' then '\r\n\t\tpublic decimal'" +
-                $" when 'text' then '\r\n\t\tpublic string'" +
-                $" when 'time' then '\r\n\t\tpublic TimeSpan'" +
-                $" when 'timestamp' then '\r\n\t\tpublic DateTime'" +
-                $" when 'tinyint' then '\r\n\t\tpublic byte'" +
-                $" when 'uniqueidentifier' then '\r\n\t\tpublic Guid'" +
-                $" when 'varbinary' then '\r\n\t\tpublic byte[]'" +
-                $" when 'varchar' then '\r\n\t\tpublic string'" +
-                $" else 'UNKNOWN_' + typ.name end ColumnType, case " +
+                $"from (select  replace(col.name, ' ', '_') ColumnName, column_id ColumnId, case " +
+                $" when typ.name like '%bigint%' then '\r\n\t\tpublic long'" +
+                $" when typ.name like '%binary%' then '\r\n\t\tpublic byte[]'" +
+                $" when typ.name like '%bit%' then '\r\n\t\tpublic bool'" +
+                $" when typ.name like '%char%' then '\r\n\t\tpublic string'" +
+                $" when typ.name like '%date%' then '\r\n\t\tpublic DateTime'" +
+                $" when typ.name like '%datetime%' then '\r\n\t\tpublic DateTime'" +
+                $" when typ.name like '%datetime2%' then '\r\n\t\tpublic DateTime'" +
+                $" when typ.name like '%datetimeoffset' then '\r\n\t\tpublic DateTimeOffset'" +
+                $" when typ.name like '%decimal%' then '\r\n\t\tpublic decimal'" +
+                $" when typ.name like '%FILESTREAM%' then '\r\n\t\tpublic Byte[]'" +
+                $" when typ.name like '%float%' then '\r\n\t\tpublic float'" +
+                $" when typ.name like '%image%' then '\r\n\t\tpublic byte[]'" +
+                $" when typ.name like '%int%' then '\r\n\t\tpublic int'" +
+                $" when typ.name like '%money%' then '\r\n\t\tpublic decimal'" +
+                $" when typ.name like '%nchar%' then '\r\n\t\tpublic string'" +
+                $" when typ.name like '%ntext%' then '\r\n\t\tpublic string'" +
+                $" when typ.name like '%numeric%' then '\r\n\t\tpublic decimal'" +
+                $" when typ.name like '%nvarchar%' then '\r\n\t\tpublic string'" +
+                $" when typ.name like '%real%' then '\r\n\t\tpublic double'" +
+                $" when typ.name like '%rowversion%' then '\r\n\t\tpublic byte[]'" +
+                $" when typ.name like '%smalldatetime%' then '\r\n\t\tpublic DateTime'" +
+                $" when typ.name like '%smallint%' then '\r\n\t\tpublic short'" +
+                $" when typ.name like '%smallmoney%' then '\r\n\t\tpublic decimal'" +
+                $" when typ.name like '%sql_variant%' then '\r\n\t\tpublic object'" +
+                $" when typ.name like '%text%' then '\r\n\t\tpublic string'" +
+                $" when typ.name like '%time%' then '\r\n\t\tpublic TimeSpan'" +
+                $" when typ.name like '%timestamp%' then '\r\n\t\tpublic DateTime'" +
+                $" when typ.name like '%tinyint%' then '\r\n\t\tpublic byte'" +
+                $" when typ.name like '%uniqueidentifier%' then '\r\n\t\tpublic Guid'" +
+                $" when typ.name like '%varbinary%' then '\r\n\t\tpublic byte[]'" +
+                $" when typ.name like '%varchar%' then '\r\n\t\tpublic string'" +
+                $" when typ.name like '%xml%' then '\r\n\t\t[Column(TypeName=\"xml\")]\r\n\t\tpublic string'" +
+                $" else '\r\n\t\t//TODO: Objeto não reconhecido' + typ.name + '\r\n\t\tpublic object' end ColumnType, case " +
                 $" when col.is_nullable = 1 and typ.name in ('bigint', 'bit', 'date', 'datetime', 'datetime2', 'datetimeoffset', 'decimal', 'float', 'int', 'money', 'numeric', 'real', 'smalldatetime', 'smallint', 'smallmoney', 'time', 'tinyint', 'uniqueidentifier') then '?' else '' end NullableSign from sys.columns col join sys.types typ on col.system_type_id = typ.system_type_id AND col.user_type_id = typ.user_type_id where object_id = object_id(@TableName)) t order by ColumnId set @Result = @Result  + " +
                 $"'\r\n\t}}\r\n}}' print @Result";
 
