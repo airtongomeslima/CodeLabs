@@ -55,6 +55,7 @@
     <Compile Include="1 - Base\F_CreateAplicacao.cs" />
     <Compile Include="1 - Base\E_CreateDominio.cs" />
     <Compile Include="1 - Base\D_CreateInfraDados.cs" />
+    <Compile Include="Models\Contexto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

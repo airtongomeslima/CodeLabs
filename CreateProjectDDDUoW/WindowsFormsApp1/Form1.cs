@@ -1,5 +1,6 @@
 ﻿using CreateProjectDDDUoW._0___Core;
 using CreateProjectDDDUoW._1___Base;
+using CreateProjectDDDUoW.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,12 +33,24 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            var ctxSelected = list_Contexts.SelectedItem as Contexto;
+            for (int i = 0; i < cklist_Tables.Items.Count -1; i++)
+            {
+                cklist_Tables.SetItemCheckState(i, CheckState.Checked);
+            }
+            ctxSelected.TabelasSelecionadas = ctxSelected.Tabelas;
+            list_Contexts.SelectedItem = ctxSelected;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            var ctxSelected = list_Contexts.SelectedItem as Contexto;
+            for (int i = 0; i < cklist_Tables.Items.Count - 1; i++)
+            {
+                cklist_Tables.SetItemCheckState(i, CheckState.Unchecked);
+            }
+            ctxSelected.TabelasSelecionadas = new List<string>();
+            list_Contexts.SelectedItem = ctxSelected;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -47,14 +60,13 @@ namespace WindowsFormsApp1
 
 
             D_CreateInfraDados createInfraDados = new D_CreateInfraDados(solucao, endereco, classes, 2);
-            C_CreateProjectAPI createProjectAPI = new C_CreateProjectAPI(solucao, endereco, conn, classes);
-            E_CreateDominio criarDominio = new E_CreateDominio(solucao, conn, endereco, classes);
-            F_CreateAplicacao criarAppServico = new F_CreateAplicacao(solucao, conn, endereco, classes);
-            G_CreateInfraSQL createInfraSQL = new G_CreateInfraSQL(solucao, conn, endereco, classes);
-            H_CreateDTOProject createDTOProject = new H_CreateDTOProject(solucao, conn, endereco, classes);
+            //C_CreateProjectAPI createProjectAPI = new C_CreateProjectAPI(solucao, endereco, conn, classes);
+            //E_CreateDominio criarDominio = new E_CreateDominio(solucao, conn, endereco, classes);
+            //F_CreateAplicacao criarAppServico = new F_CreateAplicacao(solucao, conn, endereco, classes);
+            //G_CreateInfraSQL createInfraSQL = new G_CreateInfraSQL(solucao, conn, endereco, classes);
+            //H_CreateDTOProject createDTOProject = new H_CreateDTOProject(solucao, conn, endereco, classes);
 
-            Console.WriteLine("Solution Criada");
-            Console.ReadLine();
+            MessageBox.Show("Solução Criada com sucesso");
         }
 
         private void bt_SelectFolder_Click(object sender, EventArgs e)
@@ -70,7 +82,71 @@ namespace WindowsFormsApp1
 
         private void bt_AddContext_Click(object sender, EventArgs e)
         {
+            var ctx = new Contexto();
+            try
+            {
+                ctx.Nome = tx_ContextName.Text;
+                ctx.StringConexao = tx_ConnectionString.Text;
+                ctx.Tabelas = SQLTools.GetTables(ctx.StringConexao);
+                if (ctx.Tabelas != null)
+                {
+                    list_Contexts.Items.Add(ctx);
+                }
+                ctx.TabelasSelecionadas = new List<string>();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void list_Contexts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var ctxSelected = list_Contexts.SelectedItem as Contexto;
+            cklist_Tables.Items.Clear();
+            if (ctxSelected!= null)
+            {
+                cklist_Tables.Items.AddRange(ctxSelected.Tabelas.ToArray());
+                foreach (var item in ctxSelected.TabelasSelecionadas)
+                {
+                    cklist_Tables.SetItemCheckState(cklist_Tables.Items.IndexOf(item), CheckState.Checked);
+                }
+            }
 
         }
+
+        private void cklist_Tables_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var ctxSelected = list_Contexts.SelectedItem as Contexto;
+            var itemSelecionado = cklist_Tables.SelectedItem;
+
+            if (itemSelecionado!=null)
+            {
+                if (cklist_Tables.GetItemCheckState(cklist_Tables.Items.IndexOf(itemSelecionado)) == CheckState.Checked)
+                {
+                    if (!ctxSelected.TabelasSelecionadas.Contains(itemSelecionado))
+                    {
+                        ctxSelected.TabelasSelecionadas.Add(itemSelecionado.ToString());
+                    }
+
+                }
+                else
+                {
+                    if (ctxSelected.TabelasSelecionadas.Contains(itemSelecionado))
+                    {
+                        ctxSelected.TabelasSelecionadas.Remove(itemSelecionado.ToString());
+                    }
+                }
+            }
+            list_Contexts.SelectedItem = ctxSelected;
+        }
+
+        private void btn_RemoverContexto_Click(object sender, EventArgs e)
+        {
+            list_Contexts.Items.Remove(list_Contexts.SelectedItem);
+        }
     }
+
+
 }

@@ -1,4 +1,5 @@
 ﻿using CreateProjectDDDUoW._0___Core;
+using CreateProjectDDDUoW.Models;
 using CustomExtensions;
 using System;
 using System.Collections.Generic;
@@ -24,18 +25,18 @@ namespace CreateProjectDDDUoW._1___Base
         /// <param name="enderecoRaiz"></param>
         /// <param name="repositorios"></param>
         /// <param name="tipoContexto">(1 = Entity Framework, 2 = Dapper)</param>
-        public D_CreateInfraDados(string nomeSolucao, string enderecoRaiz, List<string> repositorios, int tipoContexto)
+        public D_CreateInfraDados(string nomeSolucao, string enderecoRaiz, List<Contexto> contextos, int tipoContexto)
         {
             _nomeProjeto = $"{nomeSolucao}.Infra.Dados";
             _baseSolution = nomeSolucao;
             _enderecoProjeto = $"{enderecoRaiz}\\{nomeSolucao}\\{_nomeProjeto}";
             CreateProject();
             CreateRepositorioBase();
-            CreateRepositorios(repositorios);
+            CreateRepositorios(contextos);
 
             if (tipoContexto == 1)
             {
-                CreateEntityContext(repositorios);
+                CreateEntityContext(contextos);
             }
             else if (tipoContexto == 2)
             {
@@ -176,107 +177,116 @@ namespace CreateProjectDDDUoW._1___Base
             }
         }
 
-        public void CreateRepositorios(List<string> repositorios)
+        public void CreateRepositorios(List<Contexto> contextos)
         {
-            foreach (var repo in repositorios)
+            foreach (var contexto in contextos)
             {
-                var item = repo;
-                if (repo.Contains("."))
+                foreach (var repo in contexto.TabelasSelecionadas)
                 {
-                    item = repo.Split('.')[1];
-                }
+                    var item = repo;
+                    if (repo.Contains("."))
+                    {
+                        item = repo.Split('.')[1];
+                    }
 
+                    StringBuilder arquivo = new StringBuilder();
+
+                    arquivo.AppendLine("using Microsoft.Extensions.Configuration;");
+                    arquivo.AppendLine($"using {_baseSolution}.Dominio.Entitades;");
+                    arquivo.AppendLine($"using {_baseSolution}.Dominio.Interfaces.Repositorios;");
+                    arquivo.AppendLine("");
+                    arquivo.AppendLine($"namespace {contexto.Nome}.{_nomeProjeto}.Repositorio");
+                    arquivo.AppendLine("{");
+                    arquivo.AppendLine($"public class {item}Repositorio : RepositorioBase<{item}Entity>, I{item}Repositorio", 1);
+                    arquivo.AppendLine("{", 1);
+                    arquivo.AppendLine($"public {item}Repositorio(IConfiguration config) : base(config)", 2);
+                    arquivo.AppendLine("{", 2);
+                    arquivo.AppendLine("}", 2);
+                    arquivo.AppendLine("}", 1);
+                    arquivo.AppendLine("}");
+
+                    FolderHelper.Create($"{_enderecoProjeto}\\Repositorio");
+                    string endereco = $"Repositorio\\{contexto.Nome}\\{item}.cs";
+                    try
+                    {
+                        arquivos.Add(endereco, arquivo);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
+            }
+        }
+
+        public void CreateEntityContext(List<Contexto> contextos)
+        {
+            foreach (var contexto in contextos)
+            {
                 StringBuilder arquivo = new StringBuilder();
 
+                arquivo.AppendLine("using Microsoft.EntityFrameworkCore;");
                 arquivo.AppendLine("using Microsoft.Extensions.Configuration;");
-                arquivo.AppendLine($"using {_baseSolution}.Dominio.Entitades;");
-                arquivo.AppendLine($"using {_baseSolution}.Dominio.Interfaces.Repositorios;");
+                arquivo.AppendLine($"using {_baseSolution}.Dominio.Entitades.{contexto.Nome};");
+                arquivo.AppendLine("using System;");
+                arquivo.AppendLine("using System.Collections.Generic;");
+                arquivo.AppendLine("using System.Linq;");
+                arquivo.AppendLine("using System.Text;");
                 arquivo.AppendLine("");
-                arquivo.AppendLine($"namespace {_nomeProjeto}.Repositorio");
+                arquivo.AppendLine($"namespace {_nomeProjeto}.Contexto{contexto.Nome}");
                 arquivo.AppendLine("{");
-                arquivo.AppendLine($"public class {item}Repositorio : RepositorioBase<{item}Entity>, I{item}Repositorio", 1);
+                arquivo.AppendLine("public partial class Contexto : DbContext", 1);
                 arquivo.AppendLine("{", 1);
-                arquivo.AppendLine($"public {item}Repositorio(IConfiguration config) : base(config)", 2);
+                arquivo.AppendLine("IConfiguration _config;", 2);
+                arquivo.AppendLine("");
+                arquivo.AppendLine("public Contexto(IConfiguration config)", 2);
                 arquivo.AppendLine("{", 2);
+                arquivo.AppendLine("_config = config;", 3);
                 arquivo.AppendLine("}", 2);
+                arquivo.AppendLine("");
+                arquivo.AppendLine("protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)", 2);
+                arquivo.AppendLine("{", 2);
+                arquivo.AppendLine($"optionsBuilder.UseSqlServer(_config.GetConnectionString(\"{contexto.StringConexaoNome}\"));", 3);
+                arquivo.AppendLine("}", 2);
+                arquivo.AppendLine("");
+
+                foreach (var repo in contexto.TabelasSelecionadas)
+                {
+                    var entidade = repo;
+                    if (repo.Contains("."))
+                    {
+                        entidade = repo.Split('.')[1];
+                    }
+                    arquivo.AppendLine($"public virtual DbSet<{entidade}> {entidade} {{ get; set; }}", 2);
+                }
+
+
+                arquivo.AppendLine("");
+                arquivo.AppendLine("protected override void OnModelCreating(ModelBuilder modelBuilder)", 2);
+                arquivo.AppendLine("{", 2);
+                arquivo.AppendLine("//A regra padrão para quando houver tentativa de deletar registro com relação", 3);
+                arquivo.AppendLine("foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))", 3);
+                arquivo.AppendLine("{", 3);
+                arquivo.AppendLine("    relationship.DeleteBehavior = DeleteBehavior.Restrict;", 4);
+                arquivo.AppendLine("}", 3);
+                arquivo.AppendLine("");
+                arquivo.AppendLine("base.OnModelCreating(modelBuilder);", 3);
+                arquivo.AppendLine("////Coloque aqui as relações, não vou fazer isso, ai é preguiça de mais", 3);
+                arquivo.AppendLine("}", 2);
+                arquivo.AppendLine("");
                 arquivo.AppendLine("}", 1);
                 arquivo.AppendLine("}");
 
-                FolderHelper.Create($"{_enderecoProjeto}\\Repositorio");
-                string endereco = $"Repositorio\\{item}.cs";
+
+                FolderHelper.Create($"{_enderecoProjeto}\\Context{contexto.Nome}");
+                string endereco = $"Context\\Context{contexto.Nome}.cs";
                 try
                 {
                     arquivos.Add(endereco, arquivo);
                 }
                 catch (Exception)
                 {
+
                 }
-            }
-        }
-
-        public void CreateEntityContext(List<string> entidades)
-        {
-            StringBuilder arquivo = new StringBuilder();
-
-            arquivo.AppendLine("using Microsoft.EntityFrameworkCore;");
-            arquivo.AppendLine("using Microsoft.Extensions.Configuration;");
-            arquivo.AppendLine($"using {_baseSolution}.Dominio.Entitades;");
-            arquivo.AppendLine("using System;");
-            arquivo.AppendLine("using System.Collections.Generic;");
-            arquivo.AppendLine("using System.Linq;");
-            arquivo.AppendLine("using System.Text;");
-            arquivo.AppendLine("");
-            arquivo.AppendLine($"namespace {_nomeProjeto}.Contexto");
-            arquivo.AppendLine("{");
-            arquivo.AppendLine("public partial class ContextoEF : DbContext", 1);
-            arquivo.AppendLine("{", 1);
-            arquivo.AppendLine("IConfiguration _config;", 2);
-            arquivo.AppendLine("");
-            arquivo.AppendLine("public ContextoEF(IConfiguration config)", 2);
-            arquivo.AppendLine("{", 2);
-            arquivo.AppendLine("_config = config;", 3);
-            arquivo.AppendLine("}", 2);
-            arquivo.AppendLine("");
-            arquivo.AppendLine("protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)", 2);
-            arquivo.AppendLine("{", 2);
-            arquivo.AppendLine($"optionsBuilder.UseSqlServer(_config.GetConnectionString(\"{_baseSolution}Connection\"));", 3);
-            arquivo.AppendLine("}", 2);
-            arquivo.AppendLine("");
-            foreach (var repo in entidades)
-            {
-                var entidade = repo;
-                if (repo.Contains("."))
-                {
-                    entidade = repo.Split('.')[1];
-                }
-                arquivo.AppendLine($"public virtual DbSet<{entidade}> {entidade} {{ get; set; }}", 2);
-            }
-            arquivo.AppendLine("");
-            arquivo.AppendLine("protected override void OnModelCreating(ModelBuilder modelBuilder)", 2);
-            arquivo.AppendLine("{", 2);
-            arquivo.AppendLine("//A regra padrão para quando houver tentativa de deletar registro com relação", 3);
-            arquivo.AppendLine("foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))", 3);
-            arquivo.AppendLine("{", 3);
-            arquivo.AppendLine("    relationship.DeleteBehavior = DeleteBehavior.Restrict;", 4);
-            arquivo.AppendLine("}", 3);
-            arquivo.AppendLine("");
-            arquivo.AppendLine("base.OnModelCreating(modelBuilder);", 3);
-            arquivo.AppendLine("////Coloque aqui as relações, não vou fazer isso, ai é preguiça de mais", 3);
-            arquivo.AppendLine("}", 2);
-            arquivo.AppendLine("");
-            arquivo.AppendLine("}", 1);
-            arquivo.AppendLine("}");
-
-
-            FolderHelper.Create($"{_enderecoProjeto}\\Context");
-            string endereco = $"Context\\Context.cs";
-            try
-            {
-                arquivos.Add(endereco, arquivo);
-            }
-            catch (Exception)
-            {
-
             }
         }
 
