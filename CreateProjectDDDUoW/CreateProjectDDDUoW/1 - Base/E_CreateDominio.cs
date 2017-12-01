@@ -133,7 +133,7 @@ namespace CreateProjectDDDUoW._1___Base
                 arquivo.AppendLine("");
                 arquivo.AppendLine($"namespace {_nomeProjeto}.Interfaces.Repositorios");
                 arquivo.AppendLine("{");
-                arquivo.AppendLine($"public interface I{repos}Repositorio : IRepositorioBase<{repos}>", 1);
+                arquivo.AppendLine($"public interface I{repos}Repositorio : IRepositorioBase<{repos}Entitie>", 1);
                 arquivo.AppendLine("{", 1);
                 arquivo.AppendLine("}", 1);
                 arquivo.AppendLine("}");

@@ -164,7 +164,7 @@ namespace CreateProjectDDDUoW._1___Base
                 arquivo.AppendLine("");
                 arquivo.AppendLine($"namespace {_nomeProjeto}.Repositorio");
                 arquivo.AppendLine("{");
-                arquivo.AppendLine($"public class {item}Repositorio : RepositorioBase<{item}>, I{item}Repositorio", 1);
+                arquivo.AppendLine($"public class {item}Repositorio : RepositorioBase<{item}Entitie>, I{item}Repositorio", 1);
                 arquivo.AppendLine("{", 1);
                 arquivo.AppendLine($"public {item}Repositorio(IConfiguration config) : base(config)", 2);
                 arquivo.AppendLine("{", 2);
