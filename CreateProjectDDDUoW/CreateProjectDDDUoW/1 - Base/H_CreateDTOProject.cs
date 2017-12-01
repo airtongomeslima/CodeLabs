@@ -1,4 +1,5 @@
 ﻿using CreateProjectDDDUoW._0___Core;
+using CreateProjectDDDUoW.Models;
 using CustomExtensions;
 using System;
 using System.Collections.Generic;
@@ -17,9 +18,8 @@ namespace CreateProjectDDDUoW._1___Base
         protected string _connectionString = "";
         protected Dictionary<string, StringBuilder> arquivos = new Dictionary<string, StringBuilder>();
 
-        public H_CreateDTOProject(string nomeSolucao, string connectionstring, string enderecoRaiz, List<string> repositorios)
+        public H_CreateDTOProject(string nomeSolucao, string enderecoRaiz, List<Contexto> contextos)
         {
-            _connectionString = connectionstring;
             _nomeProjeto = $"{nomeSolucao}.DTO";
             _enderecoProjeto = $"{enderecoRaiz}\\{nomeSolucao}\\{_nomeProjeto}";
             _baseSolution = nomeSolucao;

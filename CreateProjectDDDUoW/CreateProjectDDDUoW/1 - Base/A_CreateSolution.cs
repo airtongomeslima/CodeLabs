@@ -6,22 +6,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using CreateProjectDDDUoW._0___Core;
+using CreateProjectDDDUoW.Models;
 
 namespace CreateProjectDDDUoW._1___Base
 {
     public class A_CreateSolution
     {
-        private static StringBuilder _sLN = new StringBuilder();
-        protected static Dictionary<string,string> _pastas = new Dictionary<string, string>();
-        protected static Dictionary<string,string> _projetos = new Dictionary<string, string>();
-        protected static Dictionary<string, string> _sQLProjetos = new Dictionary<string, string>();
+        private StringBuilder _sLN = new StringBuilder();
+        protected Dictionary<string,string> _pastas = new Dictionary<string, string>();
+        protected Dictionary<string,string> _projetos = new Dictionary<string, string>();
+        protected Dictionary<string, string> _sQLProjetos = new Dictionary<string, string>();
 
-        protected static Guid guidPasta = Extension.GetEnumGuid(TiposdeProjetos.Solution_Folder);
-        protected static Guid guidClass = Extension.GetEnumGuid(TiposdeProjetos.Core_Class_Library);
-        protected static Guid guidSQL = Extension.GetEnumGuid(TiposdeProjetos.SQL);
+        protected Guid guidPasta = Extension.GetEnumGuid(TiposdeProjetos.Solution_Folder);
+        protected Guid guidClass = Extension.GetEnumGuid(TiposdeProjetos.Core_Class_Library);
+        protected Guid guidSQL = Extension.GetEnumGuid(TiposdeProjetos.SQL);
 
-        protected static string _nomeSolution = "Teste";
-        protected static string _enderecoProjeto = "";
+        protected string _nomeSolution = "Teste";
+        protected string _enderecoProjeto = "";
         //VS 2015 12.0
         public string _formatVersion = "12.00";
         //VS 2015 14

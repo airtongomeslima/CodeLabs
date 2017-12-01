@@ -58,13 +58,14 @@ namespace WindowsFormsApp1
             A_CreateSolution createSln = new A_CreateSolution(endereco, solucao);
             B_CreateProjectTest createProjectTest = new B_CreateProjectTest(solucao, endereco);
 
+            var contextos = list_Contexts.Items.OfType<Contexto>().ToList();
+            D_CreateInfraDados createInfraDados = new D_CreateInfraDados(solucao, endereco, contextos, 1);
+            C_CreateProjectAPI createProjectAPI = new C_CreateProjectAPI(solucao, endereco, contextos);
+            E_CreateDominio criarDominio = new E_CreateDominio(solucao, endereco, contextos);
+            F_CreateAplicacao criarAppServico = new F_CreateAplicacao(solucao, endereco, contextos);
 
-            D_CreateInfraDados createInfraDados = new D_CreateInfraDados(solucao, endereco, classes, 2);
-            //C_CreateProjectAPI createProjectAPI = new C_CreateProjectAPI(solucao, endereco, conn, classes);
-            //E_CreateDominio criarDominio = new E_CreateDominio(solucao, conn, endereco, classes);
-            //F_CreateAplicacao criarAppServico = new F_CreateAplicacao(solucao, conn, endereco, classes);
-            //G_CreateInfraSQL createInfraSQL = new G_CreateInfraSQL(solucao, conn, endereco, classes);
-            //H_CreateDTOProject createDTOProject = new H_CreateDTOProject(solucao, conn, endereco, classes);
+            G_CreateInfraSQL createInfraSQL = new G_CreateInfraSQL(solucao, endereco, contextos);
+            H_CreateDTOProject createDTOProject = new H_CreateDTOProject(solucao, endereco, contextos);
 
             MessageBox.Show("Solução Criada com sucesso");
         }
@@ -107,7 +108,7 @@ namespace WindowsFormsApp1
             cklist_Tables.Items.Clear();
             if (ctxSelected!= null)
             {
-                cklist_Tables.Items.AddRange(ctxSelected.Tabelas.ToArray());
+                cklist_Tables.Items.AddRange(ctxSelected.Tabelas.OrderBy(t=>t).ToArray());
                 foreach (var item in ctxSelected.TabelasSelecionadas)
                 {
                     cklist_Tables.SetItemCheckState(cklist_Tables.Items.IndexOf(item), CheckState.Checked);

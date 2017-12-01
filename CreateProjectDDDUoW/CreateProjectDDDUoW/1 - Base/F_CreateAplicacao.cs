@@ -1,4 +1,5 @@
 ﻿using CreateProjectDDDUoW._0___Core;
+using CreateProjectDDDUoW.Models;
 using CustomExtensions;
 using System;
 using System.Collections.Generic;
@@ -14,22 +15,20 @@ namespace CreateProjectDDDUoW._1___Base
         protected string _nomeProjeto = "ModeloDDD";
         protected string _baseSolution = "";
         protected string _enderecoProjeto = "";
-        protected string _connectionString = "";
         protected Dictionary<string, StringBuilder> arquivos = new Dictionary<string, StringBuilder>();
 
-        public F_CreateAplicacao(string nomeSolucao, string connectionstring, string enderecoRaiz, List<string> repositorios)
+        public F_CreateAplicacao(string nomeSolucao, string enderecoRaiz, List<Contexto> contextos)
         {
-            _connectionString = connectionstring;
             _nomeProjeto = $"{nomeSolucao}.Aplicacao";
             _enderecoProjeto = $"{enderecoRaiz}\\{nomeSolucao}\\{_nomeProjeto}";
             _baseSolution = nomeSolucao;
 
             CreateProject();
             CreateIAppServicoBase();
-            CreateIRepositorioAppServico(repositorios);
+            CreateIRepositorioAppServico(contextos);
 
             CreateAppServicoBase();
-            CreateRepositorioAppServico(repositorios);
+            CreateRepositorioAppServico(contextos);
 
 
             foreach (var item in arquivos)
@@ -66,12 +65,12 @@ namespace CreateProjectDDDUoW._1___Base
             arquivo.AppendLine("  </ItemGroup>", 1);
             arquivo.AppendLine("");
             arquivo.AppendLine("</Project>");
-            
+
             FolderHelper.Create(_enderecoProjeto);
             string endereco = $"{_nomeProjeto}.csproj";
             arquivos.Add(endereco, arquivo);
         }
-        
+
         public void CreateIAppServicoBase()
         {
             StringBuilder arquivo = new StringBuilder();
@@ -97,31 +96,34 @@ namespace CreateProjectDDDUoW._1___Base
             arquivos.Add(endereco, arquivo);
         }
 
-        public void CreateIRepositorioAppServico(List<string> repositorios)
+        public void CreateIRepositorioAppServico(List<Contexto> contextos)
         {
-            foreach (var repo in repositorios)
+            foreach (var ctx in contextos)
             {
-                var repos = repo;
-                if (repo.Contains("."))
+                foreach (var repo in ctx.TabelasSelecionadas)
                 {
-                    repos = repo.Split('.')[1];
+                    var repos = repo;
+                    if (repo.Contains("."))
+                    {
+                        repos = repo.Split('.')[1];
+                    }
+
+                    StringBuilder arquivo = new StringBuilder();
+
+                    arquivo.AppendLine($"using {_baseSolution}.Dominio.Entitades.{ctx.Nome};");
+                    arquivo.AppendLine("using System.Collections.Generic;");
+                    arquivo.AppendLine("");
+                    arquivo.AppendLine($"namespace {_nomeProjeto}.Interfaces.{ctx.Nome}");
+                    arquivo.AppendLine("{");
+                    arquivo.AppendLine($"public interface I{repos}AppServico : IAppServicoBase<{repos}Entity>", 1);
+                    arquivo.AppendLine("{", 1);
+                    arquivo.AppendLine("}", 1);
+                    arquivo.AppendLine("}");
+
+                    FolderHelper.Create($"{_enderecoProjeto}\\Interfaces\\{ctx.Nome}");
+                    string endereco = $"Interfaces\\{ctx.Nome}\\I{repos}AppServico.cs";
+                    arquivos.Add(endereco, arquivo);
                 }
-
-                StringBuilder arquivo = new StringBuilder();
-
-                arquivo.AppendLine($"using {_baseSolution}.Dominio.Entitades;");
-                arquivo.AppendLine("using System.Collections.Generic;");
-                arquivo.AppendLine("");
-                arquivo.AppendLine($"namespace {_nomeProjeto}.Interfaces");
-                arquivo.AppendLine("{");
-                arquivo.AppendLine($"public interface I{repos}AppServico : IAppServicoBase<{repos}>", 1);
-                arquivo.AppendLine("{", 1);
-                arquivo.AppendLine("}", 1);
-                arquivo.AppendLine("}");
-
-                FolderHelper.Create($"{_enderecoProjeto}\\Interfaces");
-                string endereco = $"Interfaces\\I{repos}AppServico.cs";
-                arquivos.Add(endereco, arquivo);
             }
         }
 
@@ -182,39 +184,41 @@ namespace CreateProjectDDDUoW._1___Base
             arquivos.Add(endereco, arquivo);
         }
 
-        public void CreateRepositorioAppServico(List<string> repositorios)
+        public void CreateRepositorioAppServico(List<Contexto> contextos)
         {
-
-            foreach (var repo in repositorios)
+            foreach (var ctx in contextos)
             {
-                var repos = repo;
-                if (repo.Contains("."))
+                foreach (var repo in ctx.TabelasSelecionadas)
                 {
-                    repos = repo.Split('.')[1];
+                    var repos = repo;
+                    if (repo.Contains("."))
+                    {
+                        repos = repo.Split('.')[1];
+                    }
+                    StringBuilder arquivo = new StringBuilder();
+
+                    arquivo.AppendLine("using System.Collections.Generic;");
+                    arquivo.AppendLine($"using {_nomeProjeto}.Interfaces.{ctx.Nome};");
+                    arquivo.AppendLine($"using {_baseSolution}.Dominio.Entitades.{ctx.Nome};");
+                    arquivo.AppendLine($"using {_baseSolution}.Dominio.Interfaces.Servicos.{ctx.Nome};");
+                    arquivo.AppendLine("");
+                    arquivo.AppendLine($"namespace {_nomeProjeto}.Aplicacao.{ctx.Nome}");
+                    arquivo.AppendLine("{");
+                    arquivo.AppendLine($"public class {repos}AppServico : AppServicoBase<{repos}Entity>, I{repos}AppServico", 1);
+                    arquivo.AppendLine("{", 1);
+                    arquivo.AppendLine($"private readonly I{repos}Servico _servico;", 2);
+                    arquivo.AppendLine("");
+                    arquivo.AppendLine($"public {repos}AppServico(I{repos}Servico servico) : base(servico)", 2);
+                    arquivo.AppendLine("{", 2);
+                    arquivo.AppendLine("_servico = servico;", 3);
+                    arquivo.AppendLine("}", 2);
+                    arquivo.AppendLine("}", 1);
+                    arquivo.AppendLine("}");
+
+                    FolderHelper.Create($"{_enderecoProjeto}//Aplicacao//{ctx.Nome}");
+                    string endereco = $"Aplicacao//{ctx.Nome}//{repos}AppServico.cs";
+                    arquivos.Add(endereco, arquivo);
                 }
-                StringBuilder arquivo = new StringBuilder();
-
-                arquivo.AppendLine("using System.Collections.Generic;");
-                arquivo.AppendLine($"using {_nomeProjeto}.Interfaces;");
-                arquivo.AppendLine($"using {_baseSolution}.Dominio.Entitades;");
-                arquivo.AppendLine($"using {_baseSolution}.Dominio.Interfaces.Servicos;");
-                arquivo.AppendLine("");
-                arquivo.AppendLine($"namespace {_nomeProjeto}.Aplicacao");
-                arquivo.AppendLine("{");
-                arquivo.AppendLine($"public class {repos}AppServico : AppServicoBase<{repos}>, I{repos}AppServico", 1);
-                arquivo.AppendLine("{", 1);
-                arquivo.AppendLine($"private readonly I{repos}Servico _servico;", 2);
-                arquivo.AppendLine("");
-                arquivo.AppendLine($"public {repos}AppServico(I{repos}Servico servico) : base(servico)", 2);
-                arquivo.AppendLine("{", 2);
-                arquivo.AppendLine("_servico = servico;", 3);
-                arquivo.AppendLine("}", 2);
-                arquivo.AppendLine("}", 1);
-                arquivo.AppendLine("}");
-
-                FolderHelper.Create($"{_enderecoProjeto}");
-                string endereco = $"{repos}AppServico.cs";
-                arquivos.Add(endereco, arquivo);
             }
         }
     }

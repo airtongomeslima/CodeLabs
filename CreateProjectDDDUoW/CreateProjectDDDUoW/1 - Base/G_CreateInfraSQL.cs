@@ -1,4 +1,5 @@
 ﻿using CreateProjectDDDUoW._0___Core;
+using CreateProjectDDDUoW.Models;
 using CustomExtensions;
 using System;
 using System.Collections.Generic;
@@ -14,12 +15,10 @@ namespace CreateProjectDDDUoW._1___Base
         protected string _nomeProjeto = "ModeloDDD";
         protected string _baseSolution = "";
         protected string _enderecoProjeto = "";
-        protected string _connectionString = "";
         protected Dictionary<string, StringBuilder> arquivos = new Dictionary<string, StringBuilder>();
 
-        public G_CreateInfraSQL(string nomeSolucao, string connectionstring, string enderecoRaiz, List<string> repositorios)
+        public G_CreateInfraSQL(string nomeSolucao, string enderecoRaiz, List<Contexto> contextos)
         {
-            _connectionString = connectionstring;
             _nomeProjeto = $"{nomeSolucao}.Infra.SQL";
             _enderecoProjeto = $"{enderecoRaiz}\\{nomeSolucao}\\{_nomeProjeto}";
             _baseSolution = nomeSolucao;

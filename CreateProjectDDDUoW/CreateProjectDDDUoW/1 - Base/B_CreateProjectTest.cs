@@ -39,7 +39,8 @@ namespace CreateProjectDDDUoW._1___Base
                 File.Delete(arquivo);
             }
 
-            File.WriteAllText(arquivo, _pRj.ToString());
+            string file = _pRj.ToString();
+            File.WriteAllText(arquivo, file);
         }
 
         public void CreateProject()

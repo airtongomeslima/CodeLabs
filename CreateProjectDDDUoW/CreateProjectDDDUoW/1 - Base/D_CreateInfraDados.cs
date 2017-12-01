@@ -31,7 +31,7 @@ namespace CreateProjectDDDUoW._1___Base
             _baseSolution = nomeSolucao;
             _enderecoProjeto = $"{enderecoRaiz}\\{nomeSolucao}\\{_nomeProjeto}";
             CreateProject();
-            CreateRepositorioBase();
+            CreateRepositorioBase(contextos);
             CreateRepositorios(contextos);
 
             if (tipoContexto == 1)
@@ -112,69 +112,73 @@ namespace CreateProjectDDDUoW._1___Base
             }
         }
 
-        public void CreateRepositorioBase()
+        public void CreateRepositorioBase(List<Contexto> contextos)
         {
-            StringBuilder arquivo = new StringBuilder();
-
-            arquivo.AppendLine("using Microsoft.Extensions.Configuration;");
-            arquivo.AppendLine($"using {_baseSolution}.Dominio.Interfaces.Repositorios;");
-            arquivo.AppendLine("using System;");
-            arquivo.AppendLine("using System.Collections.Generic;");
-            arquivo.AppendLine("using System.Linq;");
-            arquivo.AppendLine("");
-            arquivo.AppendLine($"namespace {_nomeProjeto}.Repositorio");
-            arquivo.AppendLine("{");
-            arquivo.AppendLine("public class RepositorioBase<TEntity> : IDisposable, IRepositorioBase<TEntity> where TEntity : class", 1);
-            arquivo.AppendLine("{", 1);
-            arquivo.AppendLine("protected Contexto.Contexto contexto;", 2);
-            arquivo.AppendLine("");
-            arquivo.AppendLine("public RepositorioBase(IConfiguration config)", 2);
-            arquivo.AppendLine("{", 2);
-            arquivo.AppendLine("contexto = new Contexto.Contexto(config);", 3);
-            arquivo.AppendLine("}", 2);
-            arquivo.AppendLine("");
-            arquivo.AppendLine("public void Adicionar(TEntity obj)", 2);
-            arquivo.AppendLine("{", 2);
-            arquivo.AppendLine("contexto.Add<TEntity>(obj);", 3);
-            arquivo.AppendLine("}", 2);
-            arquivo.AppendLine("");
-            arquivo.AppendLine("public void Atualizar(TEntity obj)", 2);
-            arquivo.AppendLine("{", 2);
-            arquivo.AppendLine("contexto.Update<TEntity>(obj);", 3);
-            arquivo.AppendLine("}", 2);
-            arquivo.AppendLine("");
-            arquivo.AppendLine("public TEntity ObterPorId(int id)", 2);
-            arquivo.AppendLine("{", 2);
-            arquivo.AppendLine("return contexto.Find<TEntity>(id);", 3);
-            arquivo.AppendLine("}", 2);
-            arquivo.AppendLine("");
-            arquivo.AppendLine("public IEnumerable<TEntity> ObterTodos()", 2);
-            arquivo.AppendLine("{", 2);
-            arquivo.AppendLine("return contexto.Set<TEntity>();", 3);
-            arquivo.AppendLine("}", 2);
-            arquivo.AppendLine("");
-            arquivo.AppendLine("public void Remover(TEntity obj)", 2);
-            arquivo.AppendLine("{", 2);
-            arquivo.AppendLine("contexto.Remove<TEntity>(obj);", 3);
-            arquivo.AppendLine("}", 2);
-            arquivo.AppendLine("");
-            arquivo.AppendLine("public void Dispose()", 2);
-            arquivo.AppendLine("{", 2);
-            arquivo.AppendLine("contexto.Dispose();", 3);
-            arquivo.AppendLine("}", 2);
-            arquivo.AppendLine("}", 1);
-            arquivo.AppendLine("}");
-
-            FolderHelper.Create($"{_enderecoProjeto}\\Repositorio");
-            string endereco = $"Repositorio\\RepositorioBase.cs";
-            try
+            foreach (var ctx in contextos)
             {
-                arquivos.Add(endereco, arquivo);
-            }
-            catch (Exception)
-            {
+                StringBuilder arquivo = new StringBuilder();
 
-            }
+                arquivo.AppendLine("using Microsoft.Extensions.Configuration;");
+                arquivo.AppendLine($"using {_baseSolution}.Dominio.Interfaces.Repositorios;");
+                arquivo.AppendLine($"using {_baseSolution}.Infra.Dados.Context;");
+                arquivo.AppendLine("using System;");
+                arquivo.AppendLine("using System.Collections.Generic;");
+                arquivo.AppendLine("using System.Linq;");
+                arquivo.AppendLine("");
+                arquivo.AppendLine($"namespace {_nomeProjeto}.Repositorio.{ctx.Nome}");
+                arquivo.AppendLine("{");
+                arquivo.AppendLine("public class RepositorioBase<TEntity> : IDisposable, IRepositorioBase<TEntity> where TEntity : class", 1);
+                arquivo.AppendLine("{", 1);
+                arquivo.AppendLine($"protected {ctx.Nome}Context contexto;", 2);
+                arquivo.AppendLine("");
+                arquivo.AppendLine("public RepositorioBase(IConfiguration config)", 2);
+                arquivo.AppendLine("{", 2);
+                arquivo.AppendLine($"contexto = new {ctx.Nome}Context(config);", 3);
+                arquivo.AppendLine("}", 2);
+                arquivo.AppendLine("");
+                arquivo.AppendLine("public void Adicionar(TEntity obj)", 2);
+                arquivo.AppendLine("{", 2);
+                arquivo.AppendLine("contexto.Add<TEntity>(obj);", 3);
+                arquivo.AppendLine("}", 2);
+                arquivo.AppendLine("");
+                arquivo.AppendLine("public void Atualizar(TEntity obj)", 2);
+                arquivo.AppendLine("{", 2);
+                arquivo.AppendLine("contexto.Update<TEntity>(obj);", 3);
+                arquivo.AppendLine("}", 2);
+                arquivo.AppendLine("");
+                arquivo.AppendLine("public TEntity ObterPorId(int id)", 2);
+                arquivo.AppendLine("{", 2);
+                arquivo.AppendLine("return contexto.Find<TEntity>(id);", 3);
+                arquivo.AppendLine("}", 2);
+                arquivo.AppendLine("");
+                arquivo.AppendLine("public IEnumerable<TEntity> ObterTodos()", 2);
+                arquivo.AppendLine("{", 2);
+                arquivo.AppendLine("return contexto.Set<TEntity>();", 3);
+                arquivo.AppendLine("}", 2);
+                arquivo.AppendLine("");
+                arquivo.AppendLine("public void Remover(TEntity obj)", 2);
+                arquivo.AppendLine("{", 2);
+                arquivo.AppendLine("contexto.Remove<TEntity>(obj);", 3);
+                arquivo.AppendLine("}", 2);
+                arquivo.AppendLine("");
+                arquivo.AppendLine("public void Dispose()", 2);
+                arquivo.AppendLine("{", 2);
+                arquivo.AppendLine("contexto.Dispose();", 3);
+                arquivo.AppendLine("}", 2);
+                arquivo.AppendLine("}", 1);
+                arquivo.AppendLine("}");
+
+                FolderHelper.Create($"{_enderecoProjeto}\\Repositorio");
+                string endereco = $"Repositorio\\Repositorio{ctx.Nome}Base.cs";
+                try
+                {
+                    arquivos.Add(endereco, arquivo);
+                }
+                catch (Exception)
+                {
+
+                }
+            }            
         }
 
         public void CreateRepositorios(List<Contexto> contextos)
@@ -192,10 +196,10 @@ namespace CreateProjectDDDUoW._1___Base
                     StringBuilder arquivo = new StringBuilder();
 
                     arquivo.AppendLine("using Microsoft.Extensions.Configuration;");
-                    arquivo.AppendLine($"using {_baseSolution}.Dominio.Entitades;");
-                    arquivo.AppendLine($"using {_baseSolution}.Dominio.Interfaces.Repositorios;");
+                    arquivo.AppendLine($"using {_baseSolution}.Dominio.Entitades.{contexto.Nome};");
+                    arquivo.AppendLine($"using {_baseSolution}.Dominio.Interfaces.Repositorios.{contexto.Nome};");
                     arquivo.AppendLine("");
-                    arquivo.AppendLine($"namespace {contexto.Nome}.{_nomeProjeto}.Repositorio");
+                    arquivo.AppendLine($"namespace {_nomeProjeto}.Repositorio.{contexto.Nome}");
                     arquivo.AppendLine("{");
                     arquivo.AppendLine($"public class {item}Repositorio : RepositorioBase<{item}Entity>, I{item}Repositorio", 1);
                     arquivo.AppendLine("{", 1);
@@ -205,7 +209,7 @@ namespace CreateProjectDDDUoW._1___Base
                     arquivo.AppendLine("}", 1);
                     arquivo.AppendLine("}");
 
-                    FolderHelper.Create($"{_enderecoProjeto}\\Repositorio");
+                    FolderHelper.Create($"{_enderecoProjeto}\\Repositorio\\{contexto.Nome}");
                     string endereco = $"Repositorio\\{contexto.Nome}\\{item}.cs";
                     try
                     {
@@ -227,25 +231,22 @@ namespace CreateProjectDDDUoW._1___Base
                 arquivo.AppendLine("using Microsoft.EntityFrameworkCore;");
                 arquivo.AppendLine("using Microsoft.Extensions.Configuration;");
                 arquivo.AppendLine($"using {_baseSolution}.Dominio.Entitades.{contexto.Nome};");
-                arquivo.AppendLine("using System;");
-                arquivo.AppendLine("using System.Collections.Generic;");
                 arquivo.AppendLine("using System.Linq;");
-                arquivo.AppendLine("using System.Text;");
                 arquivo.AppendLine("");
-                arquivo.AppendLine($"namespace {_nomeProjeto}.Contexto{contexto.Nome}");
+                arquivo.AppendLine($"namespace {_nomeProjeto}.Context");
                 arquivo.AppendLine("{");
-                arquivo.AppendLine("public partial class Contexto : DbContext", 1);
+                arquivo.AppendLine($"public partial class {contexto.Nome}Context : DbContext", 1);
                 arquivo.AppendLine("{", 1);
                 arquivo.AppendLine("IConfiguration _config;", 2);
                 arquivo.AppendLine("");
-                arquivo.AppendLine("public Contexto(IConfiguration config)", 2);
+                arquivo.AppendLine($"public {contexto.Nome}Context(IConfiguration config)", 2);
                 arquivo.AppendLine("{", 2);
                 arquivo.AppendLine("_config = config;", 3);
                 arquivo.AppendLine("}", 2);
                 arquivo.AppendLine("");
                 arquivo.AppendLine("protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)", 2);
                 arquivo.AppendLine("{", 2);
-                arquivo.AppendLine($"optionsBuilder.UseSqlServer(_config.GetConnectionString(\"{contexto.StringConexaoNome}\"));", 3);
+                arquivo.AppendLine($"optionsBuilder.UseSqlServer(_config.GetConnectionString(\"{contexto.Nome}Connection\"));", 3);
                 arquivo.AppendLine("}", 2);
                 arquivo.AppendLine("");
 
@@ -256,7 +257,7 @@ namespace CreateProjectDDDUoW._1___Base
                     {
                         entidade = repo.Split('.')[1];
                     }
-                    arquivo.AppendLine($"public virtual DbSet<{entidade}> {entidade} {{ get; set; }}", 2);
+                    arquivo.AppendLine($"public virtual DbSet<{entidade}Entity> {entidade} {{ get; set; }}", 2);
                 }
 
 
@@ -277,8 +278,8 @@ namespace CreateProjectDDDUoW._1___Base
                 arquivo.AppendLine("}");
 
 
-                FolderHelper.Create($"{_enderecoProjeto}\\Context{contexto.Nome}");
-                string endereco = $"Context\\Context{contexto.Nome}.cs";
+                FolderHelper.Create($"{_enderecoProjeto}\\Context\\");
+                string endereco = $"Context\\{contexto.Nome}Context.cs";
                 try
                 {
                     arquivos.Add(endereco, arquivo);

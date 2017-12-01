@@ -53,10 +53,9 @@
             // 
             // bt_AddContext
             // 
-            this.bt_AddContext.Location = new System.Drawing.Point(584, 103);
-            this.bt_AddContext.Margin = new System.Windows.Forms.Padding(4);
+            this.bt_AddContext.Location = new System.Drawing.Point(438, 84);
             this.bt_AddContext.Name = "bt_AddContext";
-            this.bt_AddContext.Size = new System.Drawing.Size(100, 28);
+            this.bt_AddContext.Size = new System.Drawing.Size(75, 23);
             this.bt_AddContext.TabIndex = 0;
             this.bt_AddContext.Text = "Adicionar";
             this.bt_AddContext.UseVisualStyleBackColor = true;
@@ -66,50 +65,43 @@
             // 
             this.cklist_Tables.CheckOnClick = true;
             this.cklist_Tables.FormattingEnabled = true;
-            this.cklist_Tables.Location = new System.Drawing.Point(661, 198);
-            this.cklist_Tables.Margin = new System.Windows.Forms.Padding(4);
+            this.cklist_Tables.Location = new System.Drawing.Point(496, 161);
             this.cklist_Tables.Name = "cklist_Tables";
-            this.cklist_Tables.Size = new System.Drawing.Size(383, 446);
+            this.cklist_Tables.Size = new System.Drawing.Size(288, 349);
             this.cklist_Tables.TabIndex = 1;
             this.cklist_Tables.SelectedIndexChanged += new System.EventHandler(this.cklist_Tables_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 43);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(12, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 17);
+            this.label1.Size = new System.Drawing.Size(77, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Nome do Contexto";
+            this.label1.Text = "Nome da Base";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // tx_ContextName
             // 
-            this.tx_ContextName.Location = new System.Drawing.Point(151, 39);
-            this.tx_ContextName.Margin = new System.Windows.Forms.Padding(4);
+            this.tx_ContextName.Location = new System.Drawing.Point(113, 32);
             this.tx_ContextName.Name = "tx_ContextName";
-            this.tx_ContextName.Size = new System.Drawing.Size(532, 22);
+            this.tx_ContextName.Size = new System.Drawing.Size(400, 20);
             this.tx_ContextName.TabIndex = 3;
-            this.tx_ContextName.Text = "Context";
             // 
             // tx_ConnectionString
             // 
-            this.tx_ConnectionString.Location = new System.Drawing.Point(151, 71);
-            this.tx_ConnectionString.Margin = new System.Windows.Forms.Padding(4);
+            this.tx_ConnectionString.Location = new System.Drawing.Point(113, 58);
             this.tx_ConnectionString.Name = "tx_ConnectionString";
-            this.tx_ConnectionString.Size = new System.Drawing.Size(532, 22);
+            this.tx_ConnectionString.Size = new System.Drawing.Size(400, 20);
             this.tx_ConnectionString.TabIndex = 5;
-            this.tx_ConnectionString.Text = "data source=./;initial catalog=AdventureWorks2014;Integrated Security=False; User" +
-    " Id=sa;Password=160189;";
+            this.tx_ConnectionString.Text = "data source=;initial catalog=;Integrated Security=False; User Id=;Password=";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 75);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(12, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 17);
+            this.label2.Size = new System.Drawing.Size(94, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "String de Conexão";
             // 
@@ -119,40 +111,35 @@
             this.cb_Mapper.Items.AddRange(new object[] {
             "EntityFramework",
             "Dapper"});
-            this.cb_Mapper.Location = new System.Drawing.Point(825, 38);
-            this.cb_Mapper.Margin = new System.Windows.Forms.Padding(4);
+            this.cb_Mapper.Location = new System.Drawing.Point(619, 31);
             this.cb_Mapper.Name = "cb_Mapper";
-            this.cb_Mapper.Size = new System.Drawing.Size(472, 24);
+            this.cb_Mapper.Size = new System.Drawing.Size(355, 21);
             this.cb_Mapper.TabIndex = 6;
             this.cb_Mapper.Text = "EntityFramework";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(708, 43);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(531, 35);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 17);
+            this.label3.Size = new System.Drawing.Size(82, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Tipo de Mapper";
             // 
             // list_Contexts
             // 
             this.list_Contexts.FormattingEnabled = true;
-            this.list_Contexts.ItemHeight = 16;
-            this.list_Contexts.Location = new System.Drawing.Point(20, 161);
-            this.list_Contexts.Margin = new System.Windows.Forms.Padding(4);
+            this.list_Contexts.Location = new System.Drawing.Point(15, 131);
             this.list_Contexts.Name = "list_Contexts";
-            this.list_Contexts.Size = new System.Drawing.Size(575, 436);
+            this.list_Contexts.Size = new System.Drawing.Size(432, 355);
             this.list_Contexts.TabIndex = 8;
             this.list_Contexts.SelectedIndexChanged += new System.EventHandler(this.list_Contexts_SelectedIndexChanged);
             // 
             // bt_CheckAll
             // 
-            this.bt_CheckAll.Location = new System.Drawing.Point(661, 161);
-            this.bt_CheckAll.Margin = new System.Windows.Forms.Padding(4);
+            this.bt_CheckAll.Location = new System.Drawing.Point(496, 131);
             this.bt_CheckAll.Name = "bt_CheckAll";
-            this.bt_CheckAll.Size = new System.Drawing.Size(188, 28);
+            this.bt_CheckAll.Size = new System.Drawing.Size(141, 23);
             this.bt_CheckAll.TabIndex = 9;
             this.bt_CheckAll.Text = "Marcar Todos";
             this.bt_CheckAll.UseVisualStyleBackColor = true;
@@ -160,10 +147,9 @@
             // 
             // BtUncheckAll
             // 
-            this.BtUncheckAll.Location = new System.Drawing.Point(857, 161);
-            this.BtUncheckAll.Margin = new System.Windows.Forms.Padding(4);
+            this.BtUncheckAll.Location = new System.Drawing.Point(643, 131);
             this.BtUncheckAll.Name = "BtUncheckAll";
-            this.BtUncheckAll.Size = new System.Drawing.Size(188, 28);
+            this.BtUncheckAll.Size = new System.Drawing.Size(141, 23);
             this.BtUncheckAll.TabIndex = 10;
             this.BtUncheckAll.Text = "Desmarcar Todos";
             this.BtUncheckAll.UseVisualStyleBackColor = true;
@@ -171,10 +157,9 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(1091, 617);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
+            this.button4.Location = new System.Drawing.Point(818, 501);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(188, 28);
+            this.button4.Size = new System.Drawing.Size(141, 23);
             this.button4.TabIndex = 11;
             this.button4.Text = "Gerar";
             this.button4.UseVisualStyleBackColor = true;
@@ -182,39 +167,35 @@
             // 
             // tx_ExitFolder
             // 
-            this.tx_ExitFolder.Location = new System.Drawing.Point(825, 75);
-            this.tx_ExitFolder.Margin = new System.Windows.Forms.Padding(4);
+            this.tx_ExitFolder.Location = new System.Drawing.Point(619, 61);
             this.tx_ExitFolder.Name = "tx_ExitFolder";
-            this.tx_ExitFolder.Size = new System.Drawing.Size(472, 22);
+            this.tx_ExitFolder.Size = new System.Drawing.Size(355, 20);
             this.tx_ExitFolder.TabIndex = 13;
-            this.tx_ExitFolder.Text = "C:/Project/";
+            this.tx_ExitFolder.Text = "C:/Test/";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(709, 79);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(532, 64);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 17);
+            this.label4.Size = new System.Drawing.Size(81, 13);
             this.label4.TabIndex = 12;
             this.label4.Text = "Pasta de Saída";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 142);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(13, 115);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 17);
+            this.label5.Size = new System.Drawing.Size(36, 13);
             this.label5.TabIndex = 14;
-            this.label5.Text = "Contextos";
+            this.label5.Text = "Bases";
             // 
             // bt_SelectFolder
             // 
-            this.bt_SelectFolder.Location = new System.Drawing.Point(1199, 103);
-            this.bt_SelectFolder.Margin = new System.Windows.Forms.Padding(4);
+            this.bt_SelectFolder.Location = new System.Drawing.Point(899, 84);
             this.bt_SelectFolder.Name = "bt_SelectFolder";
-            this.bt_SelectFolder.Size = new System.Drawing.Size(100, 28);
+            this.bt_SelectFolder.Size = new System.Drawing.Size(75, 23);
             this.bt_SelectFolder.TabIndex = 15;
             this.bt_SelectFolder.Text = "Selecionar Pasta";
             this.bt_SelectFolder.UseVisualStyleBackColor = true;
@@ -223,38 +204,34 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(657, 142);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(493, 115);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 17);
+            this.label6.Size = new System.Drawing.Size(45, 13);
             this.label6.TabIndex = 16;
             this.label6.Text = "Tabelas";
             // 
             // tx_SolutionName
             // 
-            this.tx_SolutionName.Location = new System.Drawing.Point(151, 7);
-            this.tx_SolutionName.Margin = new System.Windows.Forms.Padding(4);
+            this.tx_SolutionName.Location = new System.Drawing.Point(113, 6);
             this.tx_SolutionName.Name = "tx_SolutionName";
-            this.tx_SolutionName.Size = new System.Drawing.Size(1147, 22);
+            this.tx_SolutionName.Size = new System.Drawing.Size(861, 20);
             this.tx_SolutionName.TabIndex = 18;
             this.tx_SolutionName.Text = "Solucao";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 11);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(12, 9);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(120, 17);
+            this.label7.Size = new System.Drawing.Size(92, 13);
             this.label7.TabIndex = 17;
             this.label7.Text = "Nome da Solução";
             // 
             // btn_RemoverContexto
             // 
-            this.btn_RemoverContexto.Location = new System.Drawing.Point(495, 616);
-            this.btn_RemoverContexto.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_RemoverContexto.Location = new System.Drawing.Point(371, 500);
             this.btn_RemoverContexto.Name = "btn_RemoverContexto";
-            this.btn_RemoverContexto.Size = new System.Drawing.Size(100, 28);
+            this.btn_RemoverContexto.Size = new System.Drawing.Size(75, 23);
             this.btn_RemoverContexto.TabIndex = 19;
             this.btn_RemoverContexto.Text = "Remover";
             this.btn_RemoverContexto.UseVisualStyleBackColor = true;
@@ -262,9 +239,9 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1315, 664);
+            this.ClientSize = new System.Drawing.Size(986, 540);
             this.Controls.Add(this.btn_RemoverContexto);
             this.Controls.Add(this.tx_SolutionName);
             this.Controls.Add(this.label7);
@@ -285,7 +262,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cklist_Tables);
             this.Controls.Add(this.bt_AddContext);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);

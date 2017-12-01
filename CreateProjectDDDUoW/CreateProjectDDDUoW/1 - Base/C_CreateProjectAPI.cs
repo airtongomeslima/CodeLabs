@@ -1,4 +1,5 @@
 ﻿using CreateProjectDDDUoW._0___Core;
+using CreateProjectDDDUoW.Models;
 using CustomExtensions;
 using System;
 using System.Collections.Generic;
@@ -11,30 +12,28 @@ namespace CreateProjectDDDUoW._1___Base
 {
     public class C_CreateProjectAPI
     {
-        private static Dictionary<string, StringBuilder> arquivos = new Dictionary<string, StringBuilder>();
+        private Dictionary<string, StringBuilder> arquivos = new Dictionary<string, StringBuilder>();
 
         protected string _nomeProjeto = "ModeloDDD";
         protected string _baseSolution = "ModeloDDD";
         protected string _enderecoProjeto = "";
-        protected string _connectionString = "";
 
         /// <summary>
         /// Criar projeto de Testes unitários
         /// </summary>
         /// <param name="nomeSolucao">Nome do projeto (ex. ModeloDDD, não precisa colocar o .Test nem o .csproj)</param>
         /// <param name="enderecoRaiz"></param>
-        public C_CreateProjectAPI(string nomeSolucao, string enderecoRaiz, string connectionString, List<string> entidades)
+        public C_CreateProjectAPI(string nomeSolucao, string enderecoRaiz, List<Contexto> contextos)
         {
             _nomeProjeto = $"{nomeSolucao}.Servicos.API";
             _enderecoProjeto = $"{enderecoRaiz}\\{nomeSolucao}\\{_nomeProjeto}";
             _baseSolution = nomeSolucao;
-            _connectionString = connectionString;
             CreateProject();
-            CreateAppSettingsJson();
+            CreateAppSettingsJson(contextos);
             CreateAppSettingsJsonDevelopment();
             CreateProgramCS();
-            CreateStartup(entidades);
-            
+            CreateStartup(contextos);
+
             CreateErrorView();
             CreateViewStart();
             CreateAutoMapperConfig();
@@ -92,7 +91,6 @@ namespace CreateProjectDDDUoW._1___Base
             arquivo.AppendLine("<PackageReference Include=\"Microsoft.AspNetCore.All\" Version=\"2.0.0\" />", 2);
             arquivo.AppendLine("<PackageReference Include=\"Microsoft.AspNetCore.Mvc.Versioning\" Version=\"2.0.0\" />", 2);
             arquivo.AppendLine("<PackageReference Include=\"Microsoft.VisualStudio.Web.CodeGeneration.Design\" Version=\"2.0.0\" />", 2);
-            arquivo.AppendLine($"<PackageReference Include=\"{_baseSolution}.DTO\" Version=\"1.0.0\" />", 2);
             arquivo.AppendLine("<PackageReference Include=\"Swashbuckle.AspNetCore\" Version=\"1.0.0\" />", 2);
             arquivo.AppendLine("</ItemGroup>", 1);
             arquivo.AppendLine("");
@@ -111,13 +109,16 @@ namespace CreateProjectDDDUoW._1___Base
             arquivos.Add(endereco, arquivo);
         }
 
-        public void CreateAppSettingsJson()
+        public void CreateAppSettingsJson(List<Contexto> contextos)
         {
             StringBuilder arquivo = new StringBuilder();
 
             arquivo.AppendLine("{");
             arquivo.AppendLine("\"ConnectionStrings\": {", 1);
-            arquivo.AppendLine($"\"{_baseSolution}Connection\": \"{_connectionString}\"");
+            foreach (var ctx in contextos)
+            {
+                arquivo.AppendLine($"\"{ctx.Nome}Connection\": \"{ctx.StringConexao}\"");
+            }
             arquivo.AppendLine("},", 1);
             arquivo.AppendLine("\"Logging\": {", 1);
             arquivo.AppendLine("\"IncludeScopes\": false,", 2);
@@ -195,7 +196,7 @@ namespace CreateProjectDDDUoW._1___Base
             arquivos.Add(endereco, arquivo);
         }
 
-        public void CreateStartup(List<string> entidades)
+        public void CreateStartup(List<Contexto> contextos)
         {
             StringBuilder arquivo = new StringBuilder();
 
@@ -213,6 +214,18 @@ namespace CreateProjectDDDUoW._1___Base
             arquivo.AppendLine($"using {_baseSolution}.Dominio.Interfaces.Servicos;");
             arquivo.AppendLine($"using {_baseSolution}.Infra.Dados.Repositorio;");
             arquivo.AppendLine($"using {_baseSolution}.Aplicacao.Aplicacao;");
+
+
+            foreach (var ctx in contextos)
+            {
+                arquivo.AppendLine($"using {_baseSolution}.Aplicacao.Interfaces.{ctx.Nome};");
+                arquivo.AppendLine($"using {_baseSolution}.Dominio.Servicos.{ctx.Nome};");
+                arquivo.AppendLine($"using {_baseSolution}.Dominio.Interfaces.Repositorios.{ctx.Nome};");
+                arquivo.AppendLine($"using {_baseSolution}.Dominio.Interfaces.Servicos.{ctx.Nome};");
+                arquivo.AppendLine($"using {_baseSolution}.Infra.Dados.Repositorio.{ctx.Nome};");
+                arquivo.AppendLine($"using {_baseSolution}.Aplicacao.Aplicacao.{ctx.Nome};");
+            }
+
             arquivo.AppendLine("");
             arquivo.AppendLine($"namespace {_nomeProjeto}");
             arquivo.AppendLine("{");
@@ -240,21 +253,23 @@ namespace CreateProjectDDDUoW._1___Base
             arquivo.AppendLine("");
             arquivo.AppendLine("#region Declaracoes", 3);
 
-
-            foreach (var e in entidades)
+            foreach (var ctx in contextos)
             {
-
-                var r = e;
-                if (e.Contains("."))
+                foreach (var e in ctx.TabelasSelecionadas)
                 {
-                    r = e.Split('.')[1];
-                }
 
-                arquivo.AppendLine($"services.AddScoped(typeof(I{r}Repositorio), typeof({r}Repositorio));", 4);
-                arquivo.AppendLine($"services.AddScoped(typeof(I{r}Servico), typeof({r}Servico));", 4);
-                arquivo.AppendLine($"services.AddScoped(typeof(I{r}AppServico), typeof({r}AppServico));", 4);
+                    var r = e;
+                    if (e.Contains("."))
+                    {
+                        r = e.Split('.')[1];
+                    }
+
+                    arquivo.AppendLine($"services.AddScoped(typeof(I{r}Repositorio), typeof({r}Repositorio));", 4);
+                    arquivo.AppendLine($"services.AddScoped(typeof(I{r}Servico), typeof({r}Servico));", 4);
+                    arquivo.AppendLine($"services.AddScoped(typeof(I{r}AppServico), typeof({r}AppServico));", 4);
+                }
             }
-            
+
 
             arquivo.AppendLine("#endregion", 3);
             arquivo.AppendLine("");
@@ -544,7 +559,7 @@ namespace CreateProjectDDDUoW._1___Base
 
             arquivo.AppendLine("using AutoMapper;");
             arquivo.AppendLine($"using {_baseSolution}.Dominio.Entitades;");
-            arquivo.AppendLine($"using {_baseSolution}.DTO;");
+            arquivo.AppendLine($"//using {_baseSolution}.DTO;");
             arquivo.AppendLine("");
             arquivo.AppendLine($"namespace {_nomeProjeto}.AutoMapper");
             arquivo.AppendLine("{");
@@ -574,7 +589,7 @@ namespace CreateProjectDDDUoW._1___Base
 
             arquivo.AppendLine("using AutoMapper;");
             arquivo.AppendLine($"using {_baseSolution}.Dominio.Entitades;");
-            arquivo.AppendLine($"using {_baseSolution}.DTO;");
+            arquivo.AppendLine($"//using {_baseSolution}.DTO;");
             arquivo.AppendLine("");
             arquivo.AppendLine($"namespace {_nomeProjeto}.AutoMapper");
             arquivo.AppendLine("{");
