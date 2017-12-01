@@ -14,6 +14,7 @@ namespace CreateProjectDDDUoW._1___Base
         protected string _nomeProjeto = "ModeloDDD";
         protected string _baseSolution = "ModeloDDD";
         protected string _enderecoProjeto = "";
+        protected int _tipoContexto = 1;
         protected Dictionary<string, StringBuilder> arquivos = new Dictionary<string, StringBuilder>();
 
         /// <summary>
@@ -51,7 +52,14 @@ namespace CreateProjectDDDUoW._1___Base
                     File.Delete(arquivo);
                 }
 
-                File.WriteAllText(arquivo, item.Value.ToString());
+                try
+                {
+                    File.WriteAllText(arquivo, item.Value.ToString());
+                }
+                catch (Exception)
+                {
+                }
+
             }
         }
 
@@ -73,8 +81,16 @@ namespace CreateProjectDDDUoW._1___Base
             arquivo.AppendLine("");
             arquivo.AppendLine("<ItemGroup>", 1);
             arquivo.AppendLine("<PackageReference Include=\"AutoMapper.Extensions.Microsoft.DependencyInjection\" Version=\"3.0.1\" />", 2);
-            arquivo.AppendLine("<PackageReference Include=\"Dapper\" Version=\"1.50.2\" />", 2);
             arquivo.AppendLine("<PackageReference Include=\"Microsoft.Extensions.Configuration\" Version=\"2.0.0\" />", 2);
+            if (_tipoContexto == 1)
+            {
+                arquivo.AppendLine("<PackageReference Include=\"Microsoft.EntityFrameworkCore\" Version=\"2.0.1\" />", 2);
+                arquivo.AppendLine("<PackageReference Include=\"Microsoft.EntityFrameworkCore.SqlServer\" Version=\"2.0.1\" />", 2);
+            }
+            else
+            {
+                arquivo.AppendLine("<PackageReference Include=\"Dapper\" Version=\"1.50.2\" />", 2);
+            }
             arquivo.AppendLine("</ItemGroup>", 1);
             arquivo.AppendLine("");
             arquivo.AppendLine("<ItemGroup>", 1);
@@ -85,7 +101,14 @@ namespace CreateProjectDDDUoW._1___Base
 
             FolderHelper.Create(_enderecoProjeto);
             string endereco = $"{_nomeProjeto}.csproj";
-            arquivos.Add(endereco, arquivo);
+            try
+            {
+                arquivos.Add(endereco, arquivo);
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         public void CreateRepositorioBase()
@@ -143,7 +166,14 @@ namespace CreateProjectDDDUoW._1___Base
 
             FolderHelper.Create($"{_enderecoProjeto}\\Repositorio");
             string endereco = $"Repositorio\\RepositorioBase.cs";
-            arquivos.Add(endereco, arquivo);
+            try
+            {
+                arquivos.Add(endereco, arquivo);
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         public void CreateRepositorios(List<string> repositorios)
@@ -164,7 +194,7 @@ namespace CreateProjectDDDUoW._1___Base
                 arquivo.AppendLine("");
                 arquivo.AppendLine($"namespace {_nomeProjeto}.Repositorio");
                 arquivo.AppendLine("{");
-                arquivo.AppendLine($"public class {item}Repositorio : RepositorioBase<{item}Entitie>, I{item}Repositorio", 1);
+                arquivo.AppendLine($"public class {item}Repositorio : RepositorioBase<{item}Entity>, I{item}Repositorio", 1);
                 arquivo.AppendLine("{", 1);
                 arquivo.AppendLine($"public {item}Repositorio(IConfiguration config) : base(config)", 2);
                 arquivo.AppendLine("{", 2);
@@ -174,8 +204,14 @@ namespace CreateProjectDDDUoW._1___Base
 
                 FolderHelper.Create($"{_enderecoProjeto}\\Repositorio");
                 string endereco = $"Repositorio\\{item}.cs";
-                arquivos.Add(endereco, arquivo);
-            }            
+                try
+                {
+                    arquivos.Add(endereco, arquivo);
+                }
+                catch (Exception)
+                {
+                }
+            }
         }
 
         public void CreateEntityContext(List<string> entidades)
@@ -234,7 +270,14 @@ namespace CreateProjectDDDUoW._1___Base
 
             FolderHelper.Create($"{_enderecoProjeto}\\Context");
             string endereco = $"Context\\Context.cs";
-            arquivos.Add(endereco, arquivo);
+            try
+            {
+                arquivos.Add(endereco, arquivo);
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         public void CreateDapperContext()
@@ -357,7 +400,14 @@ namespace CreateProjectDDDUoW._1___Base
 
             FolderHelper.Create($"{_enderecoProjeto}\\Context");
             string endereco = $"Context\\Context.cs";
-            arquivos.Add(endereco, arquivo);
+            try
+            {
+                arquivos.Add(endereco, arquivo);
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 }

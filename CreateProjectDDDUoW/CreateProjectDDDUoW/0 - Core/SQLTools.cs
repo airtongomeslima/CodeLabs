@@ -26,7 +26,11 @@ namespace CreateProjectDDDUoW._0___Core
                 List<string> TableNames = new List<string>();
                 foreach (DataRow row in schema.Rows)
                 {
-                    TableNames.Add($"{row[1].ToString()}.{row[2].ToString()}");
+                    string nome = $"{row[1].ToString()}.{row[2].ToString()}";
+                    if (!nome.Contains("$") && !nome.Contains(" ") && !nome.ToUpper().Contains("SQL"))
+                    {
+                        TableNames.Add(nome);
+                    }
                 }
                 return TableNames;
             }
