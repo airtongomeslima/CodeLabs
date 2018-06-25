@@ -1,1 +1,0 @@
-Esta camada é responsável pela leitura e escrita no banco.

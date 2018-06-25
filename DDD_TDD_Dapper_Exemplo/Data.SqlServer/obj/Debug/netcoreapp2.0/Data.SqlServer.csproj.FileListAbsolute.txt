@@ -1,0 +1,8 @@
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Data.SqlServer\bin\Debug\netcoreapp2.0\Data.SqlServer.deps.json
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Data.SqlServer\bin\Debug\netcoreapp2.0\Data.SqlServer.dll
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Data.SqlServer\bin\Debug\netcoreapp2.0\Data.SqlServer.pdb
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Data.SqlServer\obj\Debug\netcoreapp2.0\Data.SqlServer.csproj.CoreCompileInputs.cache
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Data.SqlServer\obj\Debug\netcoreapp2.0\Data.SqlServer.AssemblyInfoInputs.cache
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Data.SqlServer\obj\Debug\netcoreapp2.0\Data.SqlServer.AssemblyInfo.cs
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Data.SqlServer\obj\Debug\netcoreapp2.0\Data.SqlServer.dll
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Data.SqlServer\obj\Debug\netcoreapp2.0\Data.SqlServer.pdb

@@ -1,0 +1,12 @@
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Domain\bin\Debug\netcoreapp2.0\Domain.deps.json
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Domain\bin\Debug\netcoreapp2.0\Domain.dll
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Domain\bin\Debug\netcoreapp2.0\Domain.pdb
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Domain\bin\Debug\netcoreapp2.0\Data.SqlServer.dll
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Domain\bin\Debug\netcoreapp2.0\Data.SqlServer.pdb
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Domain\obj\Debug\netcoreapp2.0\Domain.csprojAssemblyReference.cache
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Domain\obj\Debug\netcoreapp2.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Domain\obj\Debug\netcoreapp2.0\Domain.AssemblyInfoInputs.cache
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Domain\obj\Debug\netcoreapp2.0\Domain.AssemblyInfo.cs
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Domain\obj\Debug\netcoreapp2.0\Domain.csproj.CopyComplete
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Domain\obj\Debug\netcoreapp2.0\Domain.dll
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Domain\obj\Debug\netcoreapp2.0\Domain.pdb

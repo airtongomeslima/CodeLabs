@@ -1,1 +1,0 @@
-Este projeto gera um nugget em .net standard com todos os objetos para quem for consumir seu serviço.

@@ -1,0 +1,12 @@
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Integration.Wcf\bin\Debug\netcoreapp2.0\Integration.Wcf.deps.json
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Integration.Wcf\bin\Debug\netcoreapp2.0\Integration.Wcf.dll
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Integration.Wcf\bin\Debug\netcoreapp2.0\Integration.Wcf.pdb
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Integration.Wcf\bin\Debug\netcoreapp2.0\DTO.dll
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Integration.Wcf\bin\Debug\netcoreapp2.0\DTO.pdb
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Integration.Wcf\obj\Debug\netcoreapp2.0\Integration.Wcf.csprojAssemblyReference.cache
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Integration.Wcf\obj\Debug\netcoreapp2.0\Integration.Wcf.csproj.CoreCompileInputs.cache
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Integration.Wcf\obj\Debug\netcoreapp2.0\Integration.Wcf.AssemblyInfoInputs.cache
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Integration.Wcf\obj\Debug\netcoreapp2.0\Integration.Wcf.AssemblyInfo.cs
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Integration.Wcf\obj\Debug\netcoreapp2.0\Integration.Wcf.csproj.CopyComplete
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Integration.Wcf\obj\Debug\netcoreapp2.0\Integration.Wcf.dll
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\Integration.Wcf\obj\Debug\netcoreapp2.0\Integration.Wcf.pdb

@@ -1,0 +1,9 @@
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\DTO\bin\Debug\netcoreapp2.0\DTO.deps.json
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\DTO\bin\Debug\netcoreapp2.0\DTO.dll
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\DTO\bin\Debug\netcoreapp2.0\DTO.pdb
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\DTO\obj\Debug\netcoreapp2.0\DTO.csprojAssemblyReference.cache
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\DTO\obj\Debug\netcoreapp2.0\DTO.csproj.CoreCompileInputs.cache
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\DTO\obj\Debug\netcoreapp2.0\DTO.AssemblyInfoInputs.cache
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\DTO\obj\Debug\netcoreapp2.0\DTO.AssemblyInfo.cs
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\DTO\obj\Debug\netcoreapp2.0\DTO.dll
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\DTO\obj\Debug\netcoreapp2.0\DTO.pdb

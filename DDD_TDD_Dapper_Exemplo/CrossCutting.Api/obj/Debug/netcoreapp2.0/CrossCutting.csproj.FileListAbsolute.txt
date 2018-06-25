@@ -1,0 +1,9 @@
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\CrossCutting.Api\bin\Debug\netcoreapp2.0\CrossCutting.deps.json
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\CrossCutting.Api\bin\Debug\netcoreapp2.0\CrossCutting.dll
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\CrossCutting.Api\bin\Debug\netcoreapp2.0\CrossCutting.pdb
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\CrossCutting.Api\obj\Debug\netcoreapp2.0\CrossCutting.csprojAssemblyReference.cache
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\CrossCutting.Api\obj\Debug\netcoreapp2.0\CrossCutting.csproj.CoreCompileInputs.cache
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\CrossCutting.Api\obj\Debug\netcoreapp2.0\CrossCutting.AssemblyInfoInputs.cache
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\CrossCutting.Api\obj\Debug\netcoreapp2.0\CrossCutting.AssemblyInfo.cs
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\CrossCutting.Api\obj\Debug\netcoreapp2.0\CrossCutting.dll
+C:\Users\airto\Source\Repos\CodeLabs\DDD_TDD_Dapper_Exemplo\CrossCutting.Api\obj\Debug\netcoreapp2.0\CrossCutting.pdb
